@@ -26,7 +26,7 @@ const anonymousPro = Anonymous_Pro({
 export const metadata: Metadata = {
   title: "Dundee Zhang",
   description:
-    "Dundee Zhang's porfolio. Computer Science, Waterloo. Love from Toronto <3.",
+    "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
