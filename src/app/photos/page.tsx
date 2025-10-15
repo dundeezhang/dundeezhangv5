@@ -1,4 +1,4 @@
-import { PhotographyGallery } from "@/components/photography-gallery";
+import { PhotographyGallery } from "@/components/photos/photography-gallery";
 
 export default function Photos() {
   return (

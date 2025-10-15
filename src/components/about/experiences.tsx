@@ -1,7 +1,7 @@
-import { CustomList, CustomListItem } from "./custom-list";
+import { CustomList, CustomListItem } from "../custom-list";
 import Link from "next/link";
 
-export function Activity() {
+export function Experiences() {
   return (
     <div className="max-w-xl mx-auto my-4 px-4 home-page-content">
       <CustomList>
@@ -20,11 +20,17 @@ export function Activity() {
             UW Computer Science Club
           </Link>
         </CustomListItem>
+        <CustomListItem isSubItem>
+          Writing @{" "}
+          <Link href="https://blog.dhz.app" target="_blank">
+            blog.dhz.app
+          </Link>
+        </CustomListItem>
 
         <div className="my-4" />
 
         <CustomListItem>
-          <p className="font-bold">Recently:</p>
+          <p className="font-bold">Previously:</p>
         </CustomListItem>
         <CustomListItem isSubItem>
           Software Developer @{" "}
@@ -39,27 +45,22 @@ export function Activity() {
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
-          Cofounded @{" "}
+          Cofounder @{" "}
           <Link href="https://nrghacks.ca" target="_blank">
             NRGHacks
           </Link>
         </CustomListItem>
-
-        <div className="my-4" />
-
-        <CustomListItem>
-          I write and maintain a blog. Check it out{" "}
-          <Link href="https://blog.dhz.app">here</Link>.
-        </CustomListItem>
-
-        <div className="my-4" />
-
-        <CustomListItem>
-          My resume is available{" "}
-          <Link href="/resume.pdf" prefetch={false}>
-            here
+        <CustomListItem isSubItem>
+          Mentor @{" "}
+          <Link href="https://www.ignitionhacks.org/" target="_blank">
+            Ignition Hacks
           </Link>
-          .
+        </CustomListItem>
+        <CustomListItem isSubItem>
+          Lifesaving Instructor @{" "}
+          <Link href="https://www.newmarket.ca/" target="_blank">
+            Town of Newmarket
+          </Link>
         </CustomListItem>
       </CustomList>
       <div className="my-4" />
