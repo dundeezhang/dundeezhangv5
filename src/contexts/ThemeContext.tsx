@@ -14,7 +14,6 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === "light" ? "dark" : "light";
-      // Save manual change with timestamp
       if (typeof window !== "undefined") {
         localStorage.setItem(
           "themeData",
@@ -29,12 +28,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   };
 
   useEffect(() => {
-    // Initialize theme on client side to avoid hydration mismatch
+    // init theme on client side to avoid hydration mismatch
     const initializeTheme = () => {
       let initialTheme: Theme = "light";
 
       if (typeof window !== "undefined") {
-        // Check manual theme preference within last week
+        // check manual theme preference within last week
         const savedThemeData = localStorage.getItem("themeData");
         if (savedThemeData) {
           try {
@@ -53,16 +52,14 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
                 : "light";
             }
           } catch {
-            // Invalid data, remove it
+            // invalid data, remove it
             localStorage.removeItem("themeData");
-            // Fall back to system preference
             initialTheme = window.matchMedia("(prefers-color-scheme: dark)")
               .matches
               ? "dark"
               : "light";
           }
         } else {
-          // Default to system preference
           initialTheme = window.matchMedia("(prefers-color-scheme: dark)")
             .matches
             ? "dark"
@@ -80,7 +77,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   useEffect(() => {
     if (!isLoaded) return;
 
-    // Apply theme to document root
+    // apply theme to document root
     if (typeof window !== "undefined") {
       document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.classList.toggle("dark", theme === "dark");
@@ -90,11 +87,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   useEffect(() => {
     if (!isLoaded || typeof window === "undefined") return;
 
-    // Listen for system theme changes
+    // listen for system theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      // Only update if no recent manual preference
+      // only update if no recent manual preference
       const savedThemeData = localStorage.getItem("themeData");
       if (savedThemeData) {
         try {
@@ -102,14 +99,14 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
           const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
 
           if (timestamp > oneWeekAgo) {
-            // Manual preference still valid, don't update
+            // manual preference still valid, don't update
             return;
           } else {
-            // Preference expired, remove and follow system
+            // preference expired, remove and follow system
             localStorage.removeItem("themeData");
           }
         } catch {
-          // Invalid data, remove it
+          // invalid data, remove it
           localStorage.removeItem("themeData");
         }
       }
