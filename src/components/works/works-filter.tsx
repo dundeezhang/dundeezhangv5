@@ -39,15 +39,15 @@ export function WorksFilter({
     return Array.from(tagSet).sort();
   }, [works]);
 
-  // Filter works based on search query and selected tags
+  // filter works based on search query and selected tags
   const filteredWorks = useMemo(() => {
-    // Separate the last project (More Projects) from the rest
+    // seperate the last project (More Projects) from the rest
     const lastProject = works[works.length - 1];
     const otherWorks = works.slice(0, -1);
 
     let filtered = otherWorks;
 
-    // Filter by search query
+    // search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((work) => {
@@ -59,7 +59,7 @@ export function WorksFilter({
       });
     }
 
-    // Filter by selected tags (OR logic - show if work has any of the selected tags)
+    // tags
     if (selectedTags.length > 0) {
       filtered = filtered.filter((work) => {
         const workTags = work.tech.split(", ").map((tag) => tag.trim());
@@ -69,14 +69,13 @@ export function WorksFilter({
       });
     }
 
-    // Sort alphabetically by title
+    // sort
     filtered.sort((a, b) => a.title.localeCompare(b.title));
 
-    // Always add the last project at the end
+    // + last project
     return [...filtered, lastProject];
   }, [works, searchQuery, selectedTags]);
 
-  // Update parent component when filtered works change
   useEffect(() => {
     onFilteredWorksChange(filteredWorks);
   }, [filteredWorks, onFilteredWorksChange]);
@@ -122,9 +121,7 @@ export function WorksFilter({
           <button
             key={tag}
             onClick={() => handleTagToggle(tag)}
-            className={`shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm ${
-              selectedTags.includes(tag) ? "ring-2" : ""
-            }`}
+            className={`shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm`}
             style={{
               backgroundColor: selectedTags.includes(tag)
                 ? "var(--pink)"

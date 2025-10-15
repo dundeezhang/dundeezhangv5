@@ -1,13 +1,23 @@
 [
   {
-    "title": "Portfolio",
-    "tech": "TypeScript, React, CSS, Bootstrap",
-    "description": "Website to show my projects, ideas, and experience. Continue browsing this site to see the fruits of my labour.",
-    "image": "website.jpeg",
-    "repo": "https://github.com/dundeezhang/dundeezhangv4",
+    "title": "dundeezhangv5 - Portfolio (Latest)",
+    "tech": "TypeScript, Next.js, TailwindCSS, Vercel",
+    "description": "Current portfolio site to give a sneak peak into my brain. Has my projects, and a little about myself. Deployed on Vercel. Tried to utilize as much Server Side Rendering as possible since that was the major reason why this site was made.",
+    "image": "dundeezhangv5.jpeg",
+    "repo": "https://github.com/dundeezhang/dundeezhangv5",
     "repoLabel": "Github Repository",
     "buttonClass": "",
     "link": "https://dundeezhang.com"
+  },
+  {
+    "title": "dundeezhangv4 - Portfolio",
+    "tech": "TypeScript, React, CSS, Bootstrap",
+    "description": "The previous website I had to show my projects, ideas, and experience. Feel free to check it out.",
+    "image": "dundeezhangv4.jpeg",
+    "repo": "https://github.com/dundeezhang/dundeezhangv4",
+    "repoLabel": "Github Repository",
+    "buttonClass": "",
+    "link": "https://old.dundeezhang.com"
   },
   {
     "title": "UWaterloo CS Club Website",
