@@ -1,30 +1,33 @@
-import { Intro } from "@/components/intro";
+import { Activity } from "@/components/activity";
 
 export default function About() {
   return (
-    <div className="">
-      <Intro />
-      <main className="max-w-xl mx-auto my-4 px-4">
-        <div className="py-4">
-          <h2 className="text-xl font-semibold mb-4">About Me</h2>
-          <div className="space-y-4">
-            <p>
-              I am a computer science student at the University of Waterloo with
-              a passion for building meaningful software that solves real
-              problems.
-            </p>
-            <p>
-              When I am not coding, you can find me exploring new technologies,
-              contributing to open source projects, or learning about the latest
-              developments in the tech world.
-            </p>
-            <p>
-              I am always interested in connecting with like-minded individuals
-              and exploring new opportunities. Feel free to reach out!
-            </p>
-          </div>
+    <main className="max-w-xl mx-auto mt-4 mb-8 home-page-content">
+      <div className="px-4">
+        <h1 className="text-xl mb-2 text-md font-bold transition-all duration-300 hover:translate-x-2">
+          About Me
+        </h1>
+        <div className="space-y-4">
+          <p className="transition-all duration-300 hover:translate-x-2">
+            I&apos;m a computer science student at the University of Waterloo.
+            Usually, you can find me working in the Computer Science Club office
+            (MC 3036), locking in at Dana Porter Library, or chilling in the
+            Math CnD.
+          </p>
+          <p className="transition-all duration-300 hover:translate-x-2">
+            When I&apos;m not working, I swim, workout, climb, and code.
+            Occasionally I crack open books I find interesting.
+          </p>
+          <p className="transition-all duration-300 hover:translate-x-2">
+            I&apos;m located in Toronto/Waterloo during my student terms, so if
+            you are in the area, feel free to reach out to chat!
+          </p>
+          <p className="transition-all duration-300 hover:translate-x-2">
+            Otherwise, here is what I&apos;ve been up nowadays:
+          </p>
         </div>
-      </main>
-    </div>
+      </div>
+      <Activity />
+    </main>
   );
 }

@@ -6,7 +6,6 @@ import { useTheme } from "@/hooks/use-theme";
 interface GridOverlayProps {
   x: number;
   y: number;
-  isDarkMode: boolean;
 }
 
 interface GridContainerProps {
@@ -36,7 +35,7 @@ const GridContainer: React.FC<
   </div>
 );
 
-const GridOverlay: React.FC<GridOverlayProps> = ({ x, y, isDarkMode }) => {
+const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
   const isMobile =
     typeof window !== "undefined" &&
     window.matchMedia("(hover: none) and (pointer: coarse)").matches;
@@ -49,9 +48,8 @@ const GridOverlay: React.FC<GridOverlayProps> = ({ x, y, isDarkMode }) => {
         left: isMobile ? 0 : "-50%",
         width: isMobile ? "100%" : "200%",
         height: isMobile ? "100%" : "200%",
-        backgroundImage: isDarkMode
-          ? "linear-gradient(to right, #303030 1px, transparent 1px), linear-gradient(to bottom, #303030 1px, transparent 1px)"
-          : "linear-gradient(to right, #e0e0e0 1px, transparent 1px), linear-gradient(to bottom, #e0e0e0 1px, transparent 1px)",
+        backgroundImage:
+          "linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)",
         backgroundSize: "35px 35px",
         pointerEvents: "none",
         transform: isMobile ? "none" : `translate(${-x / 75}px, ${-y / 75}px)`,
@@ -71,12 +69,11 @@ const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode }) => (
       background: isDarkMode
         ? "rgba(18, 18, 18, 0.5)"
         : "rgba(255, 255, 255, 0.2)",
-      backdropFilter: "blur(1px)",
+      backdropFilter: "blur(0.5px)",
       WebkitBackdropFilter: "blur(1px)",
       border: `1px solid ${
         isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.3)"
       }`,
-      padding: "1rem",
       boxShadow: `0 0 6px ${
         isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.1)"
       }`,
@@ -136,7 +133,6 @@ const Grid: React.FC = () => {
         <GridOverlay
           x={isTouchDevice ? 0 : mousePosition.x}
           y={isTouchDevice ? 0 : mousePosition.y}
-          isDarkMode={isDarkMode}
         />
       </GridContainer>
       <GlassBackground isDarkMode={isDarkMode} />

@@ -1,51 +1,65 @@
-import { Intro } from "@/components/intro";
+"use client";
+
+import { useState } from "react";
+import { WorkCard } from "@/components/works/work-card";
+import { WorksFilter } from "@/components/works/works-filter";
+import worksData from "@/data/works.json";
+
+interface Work {
+  title: string;
+  tech: string;
+  description: string;
+  image: string;
+  repo: string;
+  repoLabel: string;
+  buttonClass: string;
+  link: string;
+}
 
 export default function Works() {
+  const [filteredWorks, setFilteredWorks] = useState<Work[]>(
+    [...worksData].sort((a, b) => a.title.localeCompare(b.title)),
+  );
+
+  const handleFilteredWorksChange = (works: Work[]) => {
+    setFilteredWorks(works);
+  };
+
   return (
-    <div className="">
-      <Intro />
-      <main className="max-w-xl mx-auto my-4 px-4">
-        <div className="py-4">
-          <h2 className="text-xl font-semibold mb-4">My Works</h2>
-          <div className="space-y-6">
-            <div className="border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Project One</h3>
-              <p className="text-gray-600 mb-2">
-                A brief description of this project and what technologies were used to build it.
-              </p>
-              <div className="flex space-x-2">
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">React</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">TypeScript</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">Next.js</span>
-              </div>
-            </div>
+    <main className="max-w-xl mx-auto mt-4 mb-8 px-4">
+      <div className="py-4">
+        <WorksFilter
+          works={worksData}
+          onFilteredWorksChange={handleFilteredWorksChange}
+        />
 
-            <div className="border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Project Two</h3>
-              <p className="text-gray-600 mb-2">
-                Another project showcasing different skills and technologies in my toolkit.
-              </p>
-              <div className="flex space-x-2">
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">Python</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">Machine Learning</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">TensorFlow</span>
-              </div>
-            </div>
-
-            <div className="border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Project Three</h3>
-              <p className="text-gray-600 mb-2">
-                A third project demonstrating my experience with backend development and APIs.
-              </p>
-              <div className="flex space-x-2">
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">Node.js</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">PostgreSQL</span>
-                <span className="bg-gray-100 px-2 py-1 rounded text-sm">REST API</span>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 gap-6">
+          {filteredWorks.map((work, index) => (
+            <WorkCard
+              key={index}
+              title={work.title}
+              tech={work.tech}
+              description={work.description}
+              image={work.image}
+              repo={work.repo}
+              repoLabel={work.repoLabel}
+              buttonClass={work.buttonClass}
+              link={work.link}
+            />
+          ))}
         </div>
-      </main>
-    </div>
+
+        {filteredWorks.length === 0 && (
+          <div className="text-center py-12">
+            <p
+              className="text-lg"
+              style={{ color: "var(--foreground)", opacity: 0.6 }}
+            >
+              No projects found matching your search criteria.
+            </p>
+          </div>
+        )}
+      </div>
+    </main>
   );
 }

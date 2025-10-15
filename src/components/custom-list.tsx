@@ -20,16 +20,25 @@ export function CustomListItem({
   isSubItem = false,
 }: CustomListItemProps) {
   return (
-    <li className={`flex items-start gap-2 ${isSubItem ? "ml-6" : ""}`}>
+    <li
+      className={`max-w-fit flex items-start gap-2 transition-all duration-300 hover:translate-x-2 ${isSubItem ? "ml-6" : ""}`}
+    >
       {isSubItem ? (
         <ArrowBigRightDash
           size={16}
-          className="text-gray-500 mt-1 flex-shrink-0"
+          className="mt-1 flex-shrink-0 transition-all duration-300 hover:rotate-[15deg]"
+          style={{ color: "var(--foreground)", opacity: 0.6 }}
         />
       ) : (
-        <ArrowBigRight size={16} className="text-gray-600 mt-1 flex-shrink-0" />
+        <ArrowBigRight
+          size={16}
+          className="mt-1 flex-shrink-0 transition-all duration-300 hover:rotate-[15deg]"
+          style={{ color: "var(--foreground)", opacity: 0.7 }}
+        />
       )}
-      <span className="flex-1">{children}</span>
+      <span className="flex-1" style={{ color: "var(--list-text-color)" }}>
+        {children}
+      </span>
     </li>
   );
 }

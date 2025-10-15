@@ -18,3 +18,7 @@ span.glow {
   -webkit-text-fill-color: transparent;
   animation: animatedTextGradient 2.2s linear infinite;
 }
+
+.pink {
+  color: rgb(239, 45, 120);
+}

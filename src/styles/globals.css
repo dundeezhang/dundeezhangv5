@@ -3,26 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --grid-color: #e0e0e0;
+  --grid-color: #ebebeb;
+  --list-text-color: var(--foreground);
   --glass-bg: rgba(255, 255, 255, 0.2);
   --glass-border: rgba(255, 255, 255, 0.3);
   --glass-shadow: rgba(0, 0, 0, 0.1);
+  --button-border: rgba(0, 0, 0, 0.1);
+  --pink: rgb(239, 45, 120);
 }
 
 [data-theme="dark"] {
   --background: #1a1a1a;
-  --foreground: #ededed;
-  --grid-color: #303030;
+  --foreground: rgb(214, 210, 210);
+  --grid-color: #404040;
+  --list-text-color: rgb(214, 210, 210);
   --glass-bg: rgba(18, 18, 18, 0.5);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.5);
+  --button-border: rgba(255, 255, 255, 0.1);
+  --pink: rgb(239, 45, 120);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-anonymous-pro);
+  --font-mono: var(--font-anonymous-pro);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,10 +42,19 @@
   }
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-anonymous-pro), "Anonymous Pro", "Courier New", Courier,
+    monospace;
 }
 
 /* Custom list styles for home page content */
@@ -65,4 +80,105 @@ body {
   color: #888;
   margin-top: 0.125rem;
   flex-shrink: 0;
+}
+
+/* Navbar link animations */
+.navbar a {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: rgba(107, 114, 128, 0.5);
+  text-underline-offset: 0.125rem;
+  transition: text-decoration-color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.125rem;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(239, 45, 120);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  text-decoration-color: transparent;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Hide underline for active navbar links */
+.navbar a.active {
+  text-decoration-color: rgb(239, 45, 120);
+  text-decoration-thickness: 2px;
+  color: rgb(239, 45, 120);
+}
+
+.navbar a.active::after {
+  display: none;
+}
+
+/* Home page content link styles */
+.home-page-content a {
+  position: relative;
+  text-decoration: underline;
+  text-decoration-color: rgba(107, 114, 128, 0.5);
+  text-underline-offset: 0.125rem;
+  transition: text-decoration-color 0.3s ease;
+}
+
+.home-page-content a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.125rem;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: rgb(239, 45, 120);
+  transition: width 0.6s ease;
+}
+
+.home-page-content a:hover {
+  text-decoration-color: transparent;
+}
+
+.home-page-content a:hover::after {
+  width: 100%;
+}
+
+/* Work card icon hover effects */
+.work-card-icon {
+  color: var(--foreground);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.work-card-icon:hover {
+  opacity: 1;
+}
+
+/* Work card image hover effects */
+.work-card-image-container {
+  position: relative;
+  height: 16rem; /* h-64 default */
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.work-card-image-container:hover {
+  height: 24rem; /* h-96 expanded */
+}
+
+.work-card-image {
+  transition: filter 0.5s ease;
+  filter: brightness(0.5);
+  object-fit: cover;
+}
+
+.work-card-image:hover {
+  filter: brightness(0.7);
 }

@@ -8,3 +8,4 @@ export const ICON_SIZES = {
 
 export const SOCIAL_ICON_SIZE = ICON_SIZES.small;
 export const LIST_ICON_SIZE = ICON_SIZES.small;
+export const DEFAULT_ICON_SIZE = ICON_SIZES.small;
