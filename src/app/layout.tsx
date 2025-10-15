@@ -27,6 +27,26 @@ export const metadata: Metadata = {
   title: "Dundee Zhang",
   description:
     "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+  openGraph: {
+    title: "Dundee Zhang",
+    description:
+      "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+    images: [
+      {
+        url: "/card-preview.jpeg.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Dundee Zhang Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dundee Zhang",
+    description:
+      "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+    images: ["/card-preview.jpeg"],
+  },
 };
 
 export default function RootLayout({
