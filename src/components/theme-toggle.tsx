@@ -22,11 +22,25 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className="transition-all duration-300 hover:rotate-[375deg]"
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      onMouseEnter={(e) => {
+        const icon = e.currentTarget.querySelector("svg");
+        if (icon) icon.style.color = "var(--pink)";
+      }}
+      onMouseLeave={(e) => {
+        const icon = e.currentTarget.querySelector("svg");
+        if (icon) icon.style.color = "var(--foreground)";
+      }}
     >
       {theme === "light" ? (
-        <Moon size={DEFAULT_ICON_SIZE} style={{ color: "var(--foreground)" }} />
+        <Moon
+          size={DEFAULT_ICON_SIZE}
+          style={{ color: "var(--foreground)", transition: "color 300ms ease" }}
+        />
       ) : (
-        <Sun size={DEFAULT_ICON_SIZE} style={{ color: "var(--foreground)" }} />
+        <Sun
+          size={DEFAULT_ICON_SIZE}
+          style={{ color: "var(--foreground)", transition: "color 300ms ease" }}
+        />
       )}
     </button>
   );

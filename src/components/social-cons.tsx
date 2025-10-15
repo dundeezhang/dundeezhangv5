@@ -33,10 +33,7 @@ export function SocialCons() {
         <li className="p-0 sm:p-2">
           <a
             href="mailto:contact@dundeezha.ng"
-            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg]"
-            style={{ "--hover-color": "var(--pink)" } as React.CSSProperties}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pink)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#FF4D00]"
           >
             <Mail size={SOCIAL_ICON_SIZE} />
           </a>

@@ -4,9 +4,6 @@ export default function About() {
   return (
     <main className="max-w-xl mx-auto mt-4 mb-8 home-page-content">
       <div className="px-4">
-        <h1 className="text-xl mb-2 text-md font-bold transition-all duration-300 hover:translate-x-2">
-          About Me
-        </h1>
         <div className="space-y-4">
           <p className="transition-all duration-300 hover:translate-x-2">
             I&apos;m a computer science student at the University of Waterloo.

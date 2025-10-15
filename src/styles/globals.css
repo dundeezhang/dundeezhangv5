@@ -182,3 +182,14 @@ body {
 .work-card-image:hover {
   filter: brightness(0.7);
 }
+
+/* Text selection highlighting */
+::selection {
+  background-color: rgba(239, 45, 120, 0.3);
+  color: var(--foreground);
+}
+
+::-moz-selection {
+  background-color: rgba(239, 45, 120, 0.3);
+  color: var(--foreground);
+}

@@ -27,6 +27,7 @@ export function WorksFilter({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showAllTags, setShowAllTags] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   // Extract all unique tags from works data
   const allTags = useMemo(() => {
@@ -93,10 +94,20 @@ export function WorksFilter({
       {/* Search Bar */}
       <div className="relative mb-6">
         <div
-          className="relative rounded shadow-sm overflow-hidden backdrop-blur-sm"
+          className="relative rounded shadow-sm overflow-hidden backdrop-blur-sm transition-all duration-300"
           style={{
             backgroundColor: "var(--glass-bg)",
-            border: "1px solid var(--button-border)",
+            border: `1px solid ${isSearchFocused ? "var(--pink)" : "var(--button-border)"}`,
+          }}
+          onMouseEnter={(e) => {
+            if (!isSearchFocused) {
+              e.currentTarget.style.borderColor = "var(--pink)";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isSearchFocused) {
+              e.currentTarget.style.borderColor = "var(--button-border)";
+            }
           }}
         >
           <Search
@@ -109,6 +120,8 @@ export function WorksFilter({
             placeholder="Search projects"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsSearchFocused(true)}
+            onBlur={() => setIsSearchFocused(false)}
             className="w-full py-2 pl-12 pr-4 bg-transparent outline-none text-lg"
             style={{ color: "var(--foreground)" }}
           />
@@ -129,6 +142,12 @@ export function WorksFilter({
               color: selectedTags.includes(tag) ? "white" : "var(--foreground)",
               border: "1px solid var(--button-border)",
             }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--pink)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--button-border)";
+            }}
           >
             {tag}
           </button>
@@ -143,6 +162,12 @@ export function WorksFilter({
               backgroundColor: "var(--glass-bg)",
               color: "var(--foreground)",
               border: "1px solid var(--button-border)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--pink)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--button-border)";
             }}
           >
             {showAllTags ? "Show Less" : "Show More"}
