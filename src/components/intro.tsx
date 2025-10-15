@@ -60,6 +60,14 @@ export function Intro() {
             </Link>
           </li>
           <li>
+            <Link
+              href="/photos"
+              className={pathname === "/photos" ? "active" : ""}
+            >
+              Photos
+            </Link>
+          </li>
+          <li>
             <a href="https://blog.dhz.app">Blog</a>
           </li>
         </ul>

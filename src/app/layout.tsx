@@ -14,6 +14,11 @@ const anonymousPro = Anonymous_Pro({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "production"
+      ? "https://dundeezhang.com"
+      : "http://localhost:3000",
+  ),
   title: "Dundee Zhang",
   description:
     "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
