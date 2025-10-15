@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Anonymous_Pro } from "next/font/google";
+import { Anonymous_Pro } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/general.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Background from "@/components/background";
 import { Intro } from "@/components/intro";
 import { Footer } from "@/components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const anonymousPro = Anonymous_Pro({
   variable: "--font-anonymous-pro",
@@ -56,9 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${anonymousPro.variable} antialiased`}
-      >
+      <body className={`${anonymousPro.variable} antialiased`}>
         <ThemeProvider>
           <Background />
           <Intro />

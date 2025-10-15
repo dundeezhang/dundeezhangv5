@@ -96,8 +96,8 @@
     "image": "todo.jpeg",
     "repo": "https://github.com/dundeezhang/todo",
     "repoLabel": "Github Repository",
-    "buttonClass": "",
-    "link": "/works/todo.mov"
+    "buttonClass": "hide-button-class",
+    "link": ""
   },
   {
     "title": "Eco Elo",
