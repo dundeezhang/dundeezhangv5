@@ -1,4 +1,4 @@
-import { CustomList, CustomListItem } from "../custom-list";
+import { CustomList, CustomListItem } from "@/ui/custom-list";
 import Link from "next/link";
 
 export function Activity() {

@@ -3,9 +3,9 @@ import { Anonymous_Pro } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/general.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import Background from "@/components/background";
-import { Intro } from "@/components/intro";
-import { Footer } from "@/components/footer";
+import Background from "@/ui/background";
+import { Intro } from "@/ui/intro";
+import { Footer } from "@/ui/footer";
 
 const anonymousPro = Anonymous_Pro({
   variable: "--font-anonymous-pro",

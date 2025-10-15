@@ -1,7 +1,7 @@
 "use client";
 
-import { ThemeToggle } from "./theme-toggle";
-import { Webring } from "./webring";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Webring } from "@/components/webring";
 
 export function Footer() {
   const currYear = new Date().getFullYear();

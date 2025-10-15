@@ -1,6 +1,6 @@
 "use client";
 
-import { SocialCons } from "./social-cons";
+import { SocialCons } from "@/components/social-cons";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { usePathname } from "next/navigation";

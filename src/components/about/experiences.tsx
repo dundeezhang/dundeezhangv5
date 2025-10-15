@@ -1,4 +1,4 @@
-import { CustomList, CustomListItem } from "../custom-list";
+import { CustomList, CustomListItem } from "@/ui/custom-list";
 import Link from "next/link";
 
 export function Experiences() {
@@ -45,15 +45,9 @@ export function Experiences() {
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
-          Cofounder @{" "}
-          <Link href="https://nrghacks.ca" target="_blank">
-            NRGHacks
-          </Link>
-        </CustomListItem>
-        <CustomListItem isSubItem>
-          Mentor @{" "}
-          <Link href="https://www.ignitionhacks.org/" target="_blank">
-            Ignition Hacks
+          Director @{" "}
+          <Link href="https://mathsoc.uwaterloo.ca" target="_blank">
+            UW Mathematics Society
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
