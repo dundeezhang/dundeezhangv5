@@ -29,10 +29,11 @@ export function WorksFilter({
   const [showAllTags, setShowAllTags] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
-  // Extract all unique tags from works data
+  // Extract all unique tags from works data (excluding the last "More Projects" card)
   const allTags = useMemo(() => {
     const tagSet = new Set<string>();
-    works.forEach((work) => {
+    const otherWorks = works.slice(0, -1); // Exclude the last project
+    otherWorks.forEach((work) => {
       work.tech.split(", ").forEach((tag) => {
         tagSet.add(tag.trim());
       });

@@ -21,18 +21,18 @@ export function CustomListItem({
 }: CustomListItemProps) {
   return (
     <li
-      className={`max-w-fit flex items-start gap-2 transition-all duration-300 hover:translate-x-2 ${isSubItem ? "ml-6" : ""}`}
+      className={`max-w-fit flex items-start gap-2 transition-all duration-300 hover:translate-x-2 group ${isSubItem ? "ml-6" : ""}`}
     >
       {isSubItem ? (
         <ArrowBigRightDash
           size={16}
-          className="mt-1 flex-shrink-0 transition-all duration-300 hover:rotate-[15deg]"
+          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg]"
           style={{ color: "var(--foreground)", opacity: 0.6 }}
         />
       ) : (
         <ArrowBigRight
           size={16}
-          className="mt-1 flex-shrink-0 transition-all duration-300 hover:rotate-[15deg]"
+          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg]"
           style={{ color: "var(--foreground)", opacity: 0.7 }}
         />
       )}

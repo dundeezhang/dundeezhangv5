@@ -16,7 +16,7 @@ export default function About() {
             crack open books I find interesting.
           </p>
           <p className="transition-all duration-300 hover:translate-x-2">
-            I&apos;m located in Toronto/Waterloo during my student terms, so if
+            I&apos;m located in Toronto/Waterloo during my study terms, so if
             you are in the area, feel free to reach out to chat!
           </p>
           <p className="transition-all duration-300 hover:translate-x-2">

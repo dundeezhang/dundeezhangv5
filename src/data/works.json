@@ -161,7 +161,7 @@
   },
   {
     "title": "NHSCSC Website",
-    "tech": "TypeScript, Next.js, CSS, Bootstrap",
+    "tech": "TypeScript, React, CSS, Bootstrap, Vercel",
     "description": "Website for NHS CS Club. Shows events and announcements. No longer maintained.",
     "image": "nhscsc.jpeg",
     "repo": "https://github.com/dundeezhang/website-nhscc",
@@ -180,6 +180,16 @@
     "link": ""
   },
   {
+    "title": "Task Manager Application",
+    "tech": "MongoDB, Express.js, React, Node.js, JavaScript, JWT Authentication",
+    "description": "Full stack task manager application with user authentication and task management features. Built with the MERN stack.",
+    "image": "task-manager.jpeg",
+    "repo": "https://github.com/dundeezhang/MissionPerformTakehome",
+    "repoLabel": "Github Repository",
+    "buttonClass": "",
+    "link": "https://youtu.be/3LqcAfQXGas"
+  },
+  {
     "title": "Submarine Intercept Sim",
     "tech": "Java8, Java-Swing, OOP",
     "description": "World War II Battleship (Haida) versus submarine simulator",
@@ -191,7 +201,7 @@
   },
   {
     "title": "More Projects",
-    "tech": "More Languages",
+    "tech": "More Tech Stacks",
     "description": "Most of my projects are found on my GitHub profile.",
     "image": "",
     "repo": "https://github.com/dundeezhang/",

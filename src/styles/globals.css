@@ -193,3 +193,13 @@ body {
   background-color: rgba(239, 45, 120, 0.3);
   color: var(--foreground);
 }
+
+/* Webring arrow hover effects */
+.cs-webring-links {
+  color: var(--foreground);
+  transition: color 0.3s ease;
+}
+
+.cs-webring-links:hover {
+  color: var(--pink);
+}
