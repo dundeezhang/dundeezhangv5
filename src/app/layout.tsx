@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
     images: [
       {
-        url: "/card-preview.jpeg.jpeg",
+        url: "/card-preview.jpeg",
         width: 1200,
         height: 630,
         alt: "Dundee Zhang Portfolio",
