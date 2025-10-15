@@ -11,7 +11,7 @@ export function Intro() {
     <div className="max-w-xl mx-auto mt-10 px-4">
       <div className="flex flex-col py-2 gap-4 border-b-2 sm:flex-row sm:justify-between sm:items-center sm:gap-0">
         <div>
-          <h1 className="text-2xl transition-all duration-300 hover:rotate-[-2deg] hover:scale-108">
+          <h1 className="text-2xl max-w-fit transition-all duration-300 hover:rotate-[-2deg] hover:scale-108">
             <Link href="/">
               <span className="glow">Dundee Zhang</span>
             </Link>

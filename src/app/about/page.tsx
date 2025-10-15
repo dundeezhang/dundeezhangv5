@@ -12,8 +12,8 @@ export default function About() {
             Math CnD.
           </p>
           <p className="transition-all duration-300 hover:translate-x-2">
-            When I&apos;m not working, I swim, workout, climb, and code.
-            Occasionally I crack open books I find interesting.
+            When I&apos;m not working, I workout, climb, or code. Occasionally I
+            crack open books I find interesting.
           </p>
           <p className="transition-all duration-300 hover:translate-x-2">
             I&apos;m located in Toronto/Waterloo during my student terms, so if
