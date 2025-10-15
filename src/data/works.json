@@ -43,7 +43,7 @@
     "title": "Blog V3",
     "tech": "TypeScript, React, Markdown",
     "description": "My brain. I write articles on coures notes, life updates, developer notes, and reviews. Uses Markdown for article writing and rendering and Giscus for user commenting. Deployed on Cloudflare Pages.",
-    "image": "blogv3.png",
+    "image": "blogv3.jpeg",
     "repo": "https://github.com/dundeezhang/blogv3",
     "repoLabel": "Github Repository",
     "buttonClass": "",
