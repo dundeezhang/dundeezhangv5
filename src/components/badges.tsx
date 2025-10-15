@@ -28,6 +28,7 @@ export const Badges: React.FC = () => {
             alt={badge.altText}
             width="88"
             height="31"
+            unoptimized={badge.imageUrl.endsWith(".gif")}
           />
         </a>
       ))}
