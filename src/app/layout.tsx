@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   title: "Dundee Zhang",
   description:
     "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
