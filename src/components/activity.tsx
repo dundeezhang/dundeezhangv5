@@ -55,7 +55,11 @@ export function Activity() {
         <div className="my-4" />
 
         <CustomListItem>
-          My resume is available <Link href="/resume.pdf">here</Link>.
+          My resume is available{" "}
+          <Link href="/resume.pdf" prefetch={false}>
+            here
+          </Link>
+          .
         </CustomListItem>
       </CustomList>
       <div className="my-4" />
