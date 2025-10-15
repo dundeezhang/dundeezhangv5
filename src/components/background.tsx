@@ -18,22 +18,29 @@ interface GlassBackgroundProps {
 
 const GridContainer: React.FC<
   GridContainerProps & { children: React.ReactNode }
-> = ({ isDarkMode, children }) => (
-  <div
-    style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: isDarkMode ? "#1a1a1a" : "white",
-      overflow: "hidden",
-      zIndex: -100,
-    }}
-  >
-    {children}
-  </div>
-);
+> = ({ isDarkMode, children }) => {
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: isMobile ? "200vh" : "100%",
+        minHeight: isMobile ? "200vh" : "100%",
+        backgroundColor: isDarkMode ? "#1a1a1a" : "white",
+        overflow: "hidden",
+        zIndex: -100,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
   const isMobile =
@@ -47,7 +54,8 @@ const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
         top: isMobile ? 0 : "-50%",
         left: isMobile ? 0 : "-50%",
         width: isMobile ? "100%" : "200%",
-        height: isMobile ? "100%" : "200%",
+        height: isMobile ? "200vh" : "200%",
+        minHeight: isMobile ? "200vh" : "200%",
         backgroundImage:
           "linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)",
         backgroundSize: "35px 35px",
@@ -58,29 +66,36 @@ const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
   );
 };
 
-const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode }) => (
-  <div
-    style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: isDarkMode
-        ? "rgba(18, 18, 18, 0.5)"
-        : "rgba(255, 255, 255, 0.2)",
-      backdropFilter: "blur(0.5px)",
-      WebkitBackdropFilter: "blur(1px)",
-      border: `1px solid ${
-        isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.3)"
-      }`,
-      boxShadow: `0 0 6px ${
-        isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.1)"
-      }`,
-      zIndex: -99,
-    }}
-  />
-);
+const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode }) => {
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: isMobile ? "200vh" : "100%",
+        minHeight: isMobile ? "200vh" : "100%",
+        background: isDarkMode
+          ? "rgba(18, 18, 18, 0.5)"
+          : "rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(0.5px)",
+        WebkitBackdropFilter: "blur(1px)",
+        border: `1px solid ${
+          isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.3)"
+        }`,
+        boxShadow: `0 0 6px ${
+          isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.1)"
+        }`,
+        zIndex: -99,
+      }}
+    />
+  );
+};
 
 const Grid: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
