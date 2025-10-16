@@ -26,7 +26,7 @@ export function PhotographyGallery() {
             />
 
             {/* photo overlay */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+            <div className="absolute inset-x-0 bottom-0 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-out">
               <div
                 className="px-4 py-3 backdrop-blur-sm"
                 style={{
