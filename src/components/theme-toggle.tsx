@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -8,6 +8,7 @@ import { DEFAULT_ICON_SIZE } from "@/constants/icons";
 
 export function ThemeToggle() {
   const { theme, toggleTheme, isLoaded } = useTheme();
+  const [isSpinning, setIsSpinning] = useState(false);
 
   if (!isLoaded) {
     return (
@@ -19,8 +20,18 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={toggleTheme}
-      className="transition-all duration-300 hover:rotate-[375deg]"
+      onClick={() => {
+        setIsSpinning(true);
+        toggleTheme();
+        setTimeout(() => setIsSpinning(false), 500);
+      }}
+      className={`transition-all duration-300 hover:rotate-[30deg] ${
+        isSpinning ? "animate-spin" : ""
+      }`}
+      style={{
+        animationDuration: isSpinning ? "0.2s" : undefined,
+        animationIterationCount: isSpinning ? "1" : undefined,
+      }}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       onMouseEnter={(e) => {
         const icon = e.currentTarget.querySelector("svg");
