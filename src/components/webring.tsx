@@ -32,7 +32,7 @@ export function Webring() {
           <Image
             src={isDarkMode ? uwcsWrWhite : uwcsWrBlack}
             alt="UWaterloo CS Web Ring"
-            className="h-4 w-4 transition-all duration-300 hover:rotate-[10deg]"
+            className="h-4 w-4 min-w-4 transition-all duration-300 hover:rotate-[10deg]"
           />
         </a>
         <a
