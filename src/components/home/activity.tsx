@@ -15,9 +15,9 @@ export function Activity() {
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
-          Advising @{" "}
-          <Link href="https://csclub.uwaterloo.ca" target="_blank">
-            UW Computer Science Club
+          Incoming Engineer @{" "}
+          <Link href="https://coderabbit.ai" target="_blank">
+            CodeRabbit
           </Link>
         </CustomListItem>
 
@@ -33,7 +33,7 @@ export function Activity() {
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
-          President @{" "}
+          President + Advisor @{" "}
           <Link href="https://csclub.uwaterloo.ca" target="_blank">
             UW Computer Science Club
           </Link>

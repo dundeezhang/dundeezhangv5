@@ -90,6 +90,16 @@
     "link": "https://aura.dhz.app"
   },
   {
+    "title": "Secret Santa",
+    "tech": "Express.js, Node.js, JavaScript, Resend",
+    "description": "Secret Santa matching tool. Makes it easy for friend groups to create secret santa matches. Sends email notifications to each participant with their match using Resend.",
+    "image": "secret-santa.webp",
+    "repo": "https://github.com/dundeezhang/secret-santa",
+    "repoLabel": "Github Repository",
+    "buttonClass": "hide-button-class",
+    "link": ""
+  },
+  {
     "title": "yourDoList",
     "tech": "Python, Flask, HTML, SQLAlchemy, GPT-4o",
     "description": "To do list that generates subtasks for your main tasks. Uses AI to help you break down your tasks into smaller, more manageable pieces so that you spend more time working; less time planning.",
