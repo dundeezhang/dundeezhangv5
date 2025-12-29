@@ -21,7 +21,7 @@ export function Experiences() {
           </Link>
         </CustomListItem>
         <CustomListItem isSubItem>
-          Incoming Engineer @{" "}
+          Engineer @{" "}
           <Link href="https://coderabbit.ai" target="_blank">
             CodeRabbit
           </Link>
