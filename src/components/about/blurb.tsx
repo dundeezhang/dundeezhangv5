@@ -9,8 +9,8 @@ export function Blurb() {
           University of Waterloo.
         </Paragraph>
         <Paragraph>
-          Currently, I&apos;m in Toronto/Waterloo. So if you are in the area,
-          feel free to reach out to chat!
+          Currently, I&apos;m in San Francisco. So if you are in the area, feel
+          free to reach out to chat!
         </Paragraph>
         <Paragraph>Otherwise, here are my experiences laid out.</Paragraph>
       </div>
