@@ -10,7 +10,7 @@ export function Blurb() {
         </Paragraph>
         <Paragraph>
           Currently, I&apos;m in San Francisco. So if you are in the area, feel
-          free to reach out to chat!
+          free to reach out to chat.
         </Paragraph>
         <Paragraph>Otherwise, here are my experiences laid out.</Paragraph>
       </div>
