@@ -1,0 +1,30 @@
+[
+  {
+    "title": "August 2025 Blog Updates",
+    "date": "August 31, 2025",
+    "subject": "Blog Development",
+    "wordCount": 1456,
+    "filename": "blogv3.md"
+  },
+  {
+    "title": "Optimizing React Performance",
+    "date": "January 15, 2026",
+    "subject": "React Development",
+    "wordCount": 687,
+    "filename": "optimizing-react-performance.md"
+  },
+  {
+    "title": "Two Years at Waterloo",
+    "date": "December 20, 2025",
+    "subject": "Life & Experience",
+    "wordCount": 1024,
+    "filename": "reflections-on-waterloo.md"
+  },
+  {
+    "title": "Building with Next.js 14",
+    "date": "November 8, 2025",
+    "subject": "Next.js Development",
+    "wordCount": 1318,
+    "filename": "building-with-nextjs-14.md"
+  }
+]

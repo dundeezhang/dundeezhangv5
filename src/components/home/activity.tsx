@@ -48,8 +48,7 @@ export function Activity() {
         <div className="my-4" />
 
         <CustomListItem>
-          I write and maintain a blog. Check it out{" "}
-          <Link href="https://blog.dhz.app">here</Link>.
+          I write articles. Check it out <Link href="/articles">here</Link>.
         </CustomListItem>
 
         <div className="my-4" />
