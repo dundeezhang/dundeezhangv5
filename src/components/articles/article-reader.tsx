@@ -25,7 +25,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
       {/* Back button */}
       <Link
         href="/articles"
-        className="inline-flex items-center gap-2 mb-6 transition-all duration-300 hover:translate-x-[-8px]"
+        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:text-[#EF2D78]"
         style={{ color: "var(--foreground)", opacity: 0.8 }}
       >
         <ArrowLeft size={DEFAULT_ICON_SIZE} />
@@ -226,7 +226,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
       <div className="mt-6">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px]"
+          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:text-[#EF2D78]"
           style={{ color: "var(--foreground)", opacity: 0.8 }}
         >
           <ArrowLeft size={DEFAULT_ICON_SIZE} />
