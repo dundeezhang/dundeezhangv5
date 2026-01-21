@@ -67,14 +67,6 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
                 {children}
               </h3>
             ),
-            p: ({ children }) => (
-              <p
-                className="mb-4 leading-relaxed"
-                style={{ color: "var(--list-text-color)" }}
-              >
-                {children}
-              </p>
-            ),
             a: ({ href, children }) => (
               <a
                 href={href}
