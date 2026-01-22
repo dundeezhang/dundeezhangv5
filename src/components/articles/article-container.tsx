@@ -25,9 +25,9 @@ export function ArticleContainer() {
   return (
     <div>
       <div className="grid grid-cols-1">
-        {sortedArticles.map((article: Article, index: number) => (
+        {sortedArticles.map((article: Article) => (
           <ArticleCard
-            key={index}
+            key={article.filename}
             title={article.title}
             date={article.date}
             subject={article.subject}
