@@ -17,7 +17,7 @@ export function ArticleContainer() {
 
   // Convert filename to slug (remove .md extension)
   const getSlug = (filename: string) => {
-    return filename.replace(".md", "");
+    return filename.replace(/\.md$/i, "");
   };
 
   return (
