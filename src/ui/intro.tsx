@@ -70,7 +70,7 @@ export function Intro() {
           <li>
             <Link
               href="/articles"
-              className={pathname === "/articles" ? "active" : ""}
+              className={pathname.startsWith("/articles") ? "active" : ""}
             >
               Articles
             </Link>
