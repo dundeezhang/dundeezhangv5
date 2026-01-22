@@ -1,5 +1,3 @@
-"use client";
-
 import { ArticleCard } from "./article-card";
 import articlesData from "@/data/articles.json";
 
