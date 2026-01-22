@@ -169,7 +169,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
                 />
               );
             },
-            p: ({ children, ...props }) => {
+            p: ({ children, node, ...props }) => {
               // Check if the paragraph only contains an image
               const hasOnlyImage =
                 children &&
