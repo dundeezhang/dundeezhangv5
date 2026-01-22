@@ -25,7 +25,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
       {/* Back button */}
       <Link
         href="/articles"
-        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:text-[#EF2D78]"
+        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:!text-[#EF2D78]"
         style={{ color: "var(--foreground)", opacity: 0.8 }}
       >
         <ArrowLeft size={DEFAULT_ICON_SIZE} />
@@ -158,21 +158,15 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
             img: ({ src, alt }) => {
               if (!src || typeof src !== "string") return null;
 
-              // Handle relative paths for local images
-              const imageSrc = src.startsWith("../")
-                ? src.replace("../../../public", "")
-                : src;
-
               return (
                 <Image
-                  src={imageSrc}
+                  src={src}
                   alt={alt || "Article image"}
-                  width={800}
-                  height={600}
-                  className="rounded-lg w-full h-auto my-6"
+                  width={1200}
+                  height={800}
+                  className="rounded shadow-lg w-full h-auto my-6"
                   style={{
-                    maxWidth: "100%",
-                    height: "auto",
+                    border: "1px solid var(--button-border)",
                   }}
                 />
               );
@@ -218,7 +212,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
       <div className="mt-6">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:text-[#EF2D78]"
+          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:!text-[#EF2D78]"
           style={{ color: "var(--foreground)", opacity: 0.8 }}
         >
           <ArrowLeft size={DEFAULT_ICON_SIZE} />
