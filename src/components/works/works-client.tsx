@@ -4,17 +4,7 @@ import { useState } from "react";
 import { WorkCard } from "@/components/works/work-card";
 import { WorksFilter } from "@/components/works/works-filter";
 import worksData from "@/data/works.json";
-
-interface Work {
-  title: string;
-  tech: string;
-  description: string;
-  image: string;
-  repo: string;
-  repoLabel: string;
-  buttonClass: string;
-  link: string;
-}
+import type { Work } from "@/types";
 
 export function WorksClient() {
   const [filteredWorks, setFilteredWorks] = useState<Work[]>(
@@ -33,9 +23,9 @@ export function WorksClient() {
       />
 
       <div className="grid grid-cols-1 gap-6">
-        {filteredWorks.map((work, index) => (
+        {filteredWorks.map((work) => (
           <WorkCard
-            key={index}
+            key={work.title}
             title={work.title}
             tech={work.tech}
             description={work.description}

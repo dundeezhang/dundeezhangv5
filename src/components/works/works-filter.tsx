@@ -3,17 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Search } from "lucide-react";
 import { DEFAULT_ICON_SIZE } from "@/constants/icons";
-
-interface Work {
-  title: string;
-  tech: string;
-  description: string;
-  image: string;
-  repo: string;
-  repoLabel: string;
-  buttonClass: string;
-  link: string;
-}
+import type { Work } from "@/types";
 
 interface WorksFilterProps {
   works: Work[];
