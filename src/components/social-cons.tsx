@@ -9,7 +9,8 @@ export function SocialCons() {
         <li className="p-0 sm:p-2">
           <a
             href="https://x.com/dundeezhang"
-            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#1DA1F2]"
+            aria-label="Twitter profile"
+            className="twitter-icon flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#1DA1F2]"
           >
             <Twitter size={SOCIAL_ICON_SIZE} />
           </a>
@@ -17,6 +18,7 @@ export function SocialCons() {
         <li className="p-0 sm:p-2">
           <a
             href="https://github.com/dundeezhang"
+            aria-label="GitHub profile"
             className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#6366f1]"
           >
             <Github size={SOCIAL_ICON_SIZE} />
@@ -25,6 +27,7 @@ export function SocialCons() {
         <li className="p-0 sm:p-2">
           <a
             href="https://linkedin.com/in/dundeezhang"
+            aria-label="LinkedIn profile"
             className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#0077B5]"
           >
             <Linkedin size={SOCIAL_ICON_SIZE} />
@@ -33,6 +36,7 @@ export function SocialCons() {
         <li className="p-0 sm:p-2">
           <a
             href="mailto:contact@dundeezha.ng"
+            aria-label="Email address"
             className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#FF4D00]"
           >
             <Mail size={SOCIAL_ICON_SIZE} />

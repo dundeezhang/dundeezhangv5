@@ -20,9 +20,11 @@ export function Activity() {
             CodeRabbit
           </Link>
         </CustomListItem>
+      </CustomList>
 
-        <div className="my-4" />
+      <div className="my-4" />
 
+      <CustomList>
         <CustomListItem>
           <p className="font-bold">Recently:</p>
         </CustomListItem>
@@ -44,23 +46,24 @@ export function Activity() {
             NRGHacks
           </Link>
         </CustomListItem>
+      </CustomList>
 
-        <div className="my-4" />
+      <div className="my-4" />
 
+      <CustomList>
         <CustomListItem>
-          I write articles. Check it out <Link href="/articles">here</Link>.
-        </CustomListItem>
-
-        <div className="my-4" />
-
-        <CustomListItem>
-          My resume is available{" "}
-          <Link href="/resume.pdf" prefetch={false}>
-            here
-          </Link>
-          .
+          I write <Link href="/articles">articles</Link>.
         </CustomListItem>
       </CustomList>
+
+      <div className="my-4" />
+
+      <CustomList>
+        <CustomListItem>
+          View my <Link href="/resume.pdf" prefetch={false}>resume</Link>.
+        </CustomListItem>
+      </CustomList>
+
       <div className="my-4" />
     </div>
   );

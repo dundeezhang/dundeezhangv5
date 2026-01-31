@@ -22,12 +22,14 @@ export function Webring() {
         <a
           className="cs-webring-links"
           href="https://cs.uwatering.com/#https://dundeezhang.com?nav=prev"
+          aria-label="Previous site in UWaterloo CS webring"
         >
           <MoveLeft size={DEFAULT_ICON_SIZE} />
         </a>
         <a
           href="https://cs.uwatering.com/#https://dundeezhang.com"
           target="_blank"
+          aria-label="UWaterloo CS webring home"
         >
           <Image
             src={isDarkMode ? uwcsWrWhite : uwcsWrBlack}
@@ -38,6 +40,7 @@ export function Webring() {
         <a
           className="cs-webring-links"
           href="https://cs.uwatering.com/#https://dundeezhang.com?nav=next"
+          aria-label="Next site in UWaterloo CS webring"
         >
           <MoveRight size={DEFAULT_ICON_SIZE} />
         </a>

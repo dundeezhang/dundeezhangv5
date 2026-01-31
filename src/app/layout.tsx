@@ -11,6 +11,8 @@ const anonymousPro = Anonymous_Pro({
   variable: "--font-anonymous-pro",
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: "swap", // Ensures text is visible while font loads
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -21,11 +23,20 @@ export const metadata: Metadata = {
   ),
   title: "Dundee Zhang",
   description:
-    "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+    "Dundee Zhang's portfolio. View my projects and other works! Love from Toronto.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Dundee Zhang",
     description:
-      "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+      "Dundee Zhang's portfolio. View my projects and other works! Love from Toronto.",
     images: [
       {
         url: "/card-preview.jpeg",
@@ -39,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dundee Zhang",
     description:
-      "Dundee Zhang's porfolio. View my projects and other works! Love from Toronto <3.",
+      "Dundee Zhang's portfolio. View my projects and other works! Love from Toronto.",
     images: ["/card-preview.jpeg"],
   },
 };
@@ -51,27 +62,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
       <body className={`${anonymousPro.variable} antialiased`}>
         <ThemeProvider>
           <Background />
