@@ -20,5 +20,5 @@ span.glow {
 }
 
 .pink {
-  color: rgb(239, 45, 120);
+  color: var(--pink);
 }

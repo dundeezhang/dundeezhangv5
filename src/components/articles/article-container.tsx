@@ -1,13 +1,6 @@
 import { ArticleCard } from "./article-card";
 import articlesData from "@/data/articles.json";
-
-interface Article {
-  title: string;
-  date: string;
-  subject: string;
-  wordCount: number;
-  filename: string;
-}
+import type { Article } from "@/types";
 
 export function ArticleContainer() {
   // Sort articles by date (newest first)

@@ -17,13 +17,13 @@ interface ArticleReaderProps {
   };
 }
 
-export function ArticleReader({ content, article }: ArticleReaderProps) {
+export function ArticleReader({ content, article: _article }: ArticleReaderProps) {
   return (
     <div>
       {/* Back button */}
       <Link
         href="/articles"
-        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:!text-[#EF2D78]"
+        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
         style={{ color: "var(--foreground)", opacity: 0.8 }}
       >
         <ArrowLeft size={DEFAULT_ICON_SIZE} />
@@ -68,7 +68,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
             a: ({ href, children }) => (
               <a
                 href={href}
-                className="text-[#EF2D78] hover:underline transition-all duration-300"
+                className="text-pink hover:underline transition-all duration-300"
                 target={
                   href && typeof href === "string" && href.startsWith("http")
                     ? "_blank"
@@ -145,7 +145,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
               <blockquote
                 className="border-l-4 pl-4 my-4 italic"
                 style={{
-                  borderColor: "#EF2D78",
+                  borderColor: "var(--pink)",
                   color: "var(--list-text-color)",
                   opacity: 0.9,
                 }}
@@ -169,7 +169,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
                 />
               );
             },
-            p: ({ children, node, ...props }) => {
+            p: ({ children, node: _node, ...props }) => {
               // Check if the paragraph only contains an image
               const hasOnlyImage =
                 children &&
@@ -210,7 +210,7 @@ export function ArticleReader({ content, article }: ArticleReaderProps) {
       <div className="mt-6">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:!text-[#EF2D78]"
+          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
           style={{ color: "var(--foreground)", opacity: 0.8 }}
         >
           <ArrowLeft size={DEFAULT_ICON_SIZE} />

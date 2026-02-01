@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import photographyData from "@/data/photography.json";
+import type { Photo } from "@/types";
 
 export function PhotographyGallery() {
   return (
     <div className="space-y-8">
-      {photographyData.map((photo, index) => (
+      {(photographyData as Photo[]).map((photo) => (
         <div
-          key={index}
+          key={photo.src}
           className="relative group overflow-hidden rounded shadow-lg"
           style={{
             backgroundColor: "var(--glass-bg)",

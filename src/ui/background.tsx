@@ -105,6 +105,7 @@ const Grid: React.FC = () => {
   const isDarkMode = theme === "dark";
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Intentional: triggers re-render after hydration to prevent SSR mismatch
     setIsMounted(true);
   }, []);
 

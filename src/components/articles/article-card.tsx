@@ -18,7 +18,7 @@ export function ArticleCard({
   return (
     <div className="mb-4 last:mb-0 transition-all duration-300 hover:translate-x-[8px] group w-fit">
       <Link href={`/articles/${slug}`} className="block article-page w-fit">
-        <div className="font-bold transition-colors duration-300 group-hover:text-[#EF2D78]">
+        <div className="font-bold transition-colors duration-300 group-hover:text-pink">
           {title}
         </div>
         <div className="text-sm" style={{ color: "var(--list-text-color)" }}>

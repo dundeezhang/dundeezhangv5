@@ -3,17 +3,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Search } from "lucide-react";
 import { DEFAULT_ICON_SIZE } from "@/constants/icons";
-
-interface Work {
-  title: string;
-  tech: string;
-  description: string;
-  image: string;
-  repo: string;
-  repoLabel: string;
-  buttonClass: string;
-  link: string;
-}
+import type { Work } from "@/types";
 
 interface WorksFilterProps {
   works: Work[];
@@ -43,6 +33,10 @@ export function WorksFilter({
 
   // filter works based on search query and selected tags
   const filteredWorks = useMemo(() => {
+    if (works.length === 0) {
+      return [];
+    }
+
     // seperate the last project (More Projects) from the rest
     const lastProject = works[works.length - 1];
     const otherWorks = works.slice(0, -1);

@@ -15,19 +15,22 @@ export function Webring() {
     <div
       className=" ml-2"
       style={{
-        borderColor: "rgb(239, 45, 120)",
+        borderColor: "var(--pink)",
       }}
     >
       <div className="flex items-center justify-center gap-2">
         <a
           className="cs-webring-links"
           href="https://cs.uwatering.com/#https://dundeezhang.com?nav=prev"
+          aria-label="Previous site in UWaterloo CS webring"
         >
           <MoveLeft size={DEFAULT_ICON_SIZE} />
         </a>
         <a
           href="https://cs.uwatering.com/#https://dundeezhang.com"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="UWaterloo CS webring home"
         >
           <Image
             src={isDarkMode ? uwcsWrWhite : uwcsWrBlack}
@@ -38,6 +41,7 @@ export function Webring() {
         <a
           className="cs-webring-links"
           href="https://cs.uwatering.com/#https://dundeezhang.com?nav=next"
+          aria-label="Next site in UWaterloo CS webring"
         >
           <MoveRight size={DEFAULT_ICON_SIZE} />
         </a>
