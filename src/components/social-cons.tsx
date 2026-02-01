@@ -42,24 +42,21 @@ export function SocialCons() {
             <Mail size={SOCIAL_ICON_SIZE} />
           </a>
         </li>
-        <a
-          href="/resume.pdf"
-          className="transition-all duration-300 hidden sm:block"
-          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pink)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "")}
-        >
-          <li
-            className="border-2 py-1 px-2 rounded ml-2"
+        <li className="hidden sm:block ml-2">
+          <a
+            href="/resume.pdf"
+            aria-label="Download resume PDF"
+            className="transition-all duration-300 border-2 py-1 px-2 rounded flex items-center space-x-1"
             style={{
               borderColor: "rgb(239, 45, 120)",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pink)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "")}
           >
-            <div className="flex items-center space-x-1">
-              <FileText size={SOCIAL_ICON_SIZE} />
-              <span className="text-sm">Resume</span>
-            </div>
-          </li>
-        </a>
+            <FileText size={SOCIAL_ICON_SIZE} />
+            <span className="text-sm">Resume</span>
+          </a>
+        </li>
       </ul>
     </>
   );

@@ -33,6 +33,10 @@ export function WorksFilter({
 
   // filter works based on search query and selected tags
   const filteredWorks = useMemo(() => {
+    if (works.length === 0) {
+      return [];
+    }
+
     // seperate the last project (More Projects) from the rest
     const lastProject = works[works.length - 1];
     const otherWorks = works.slice(0, -1);
