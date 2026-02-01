@@ -45,7 +45,7 @@ export function SocialCons() {
         <li className="hidden sm:block ml-2">
           <a
             href="/resume.pdf"
-            aria-label="Download resume PDF"
+            aria-label="View resume PDF"
             className="transition-all duration-300 border-2 py-1 px-2 rounded flex items-center space-x-1"
             style={{
               borderColor: "rgb(239, 45, 120)",
