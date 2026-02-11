@@ -46,12 +46,7 @@ export function SocialCons() {
           <a
             href="/resume.pdf"
             aria-label="View resume PDF"
-            className="transition-all duration-300 border-2 py-1 px-2 rounded flex items-center space-x-1"
-            style={{
-              borderColor: "rgb(239, 45, 120)",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--pink)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+            className="resume-btn transition-all duration-300 border-2 border-pink py-1 px-2 rounded flex items-center space-x-1"
           >
             <FileText size={SOCIAL_ICON_SIZE} />
             <span className="text-sm">Resume</span>

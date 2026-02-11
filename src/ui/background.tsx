@@ -6,23 +6,22 @@ import { useTheme } from "@/hooks/use-theme";
 interface GridOverlayProps {
   x: number;
   y: number;
+  isMobile: boolean;
 }
 
 interface GridContainerProps {
   isDarkMode: boolean;
+  isMobile: boolean;
 }
 
 interface GlassBackgroundProps {
   isDarkMode: boolean;
+  isMobile: boolean;
 }
 
 const GridContainer: React.FC<
   GridContainerProps & { children: React.ReactNode }
-> = ({ isDarkMode, children }) => {
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-
+> = ({ isDarkMode, isMobile, children }) => {
   return (
     <div
       style={{
@@ -42,11 +41,7 @@ const GridContainer: React.FC<
   );
 };
 
-const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-
+const GridOverlay: React.FC<GridOverlayProps> = ({ x, y, isMobile }) => {
   return (
     <div
       style={{
@@ -66,11 +61,7 @@ const GridOverlay: React.FC<GridOverlayProps> = ({ x, y }) => {
   );
 };
 
-const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode }) => {
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-
+const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode, isMobile }) => {
   return (
     <div
       style={{
@@ -103,6 +94,11 @@ const Grid: React.FC = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, isLoaded } = useTheme();
   const isDarkMode = theme === "dark";
+
+  const isMobile =
+    isMounted &&
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- Intentional: triggers re-render after hydration to prevent SSR mismatch
@@ -145,13 +141,14 @@ const Grid: React.FC = () => {
 
   return (
     <>
-      <GridContainer isDarkMode={isDarkMode}>
+      <GridContainer isDarkMode={isDarkMode} isMobile={isMobile}>
         <GridOverlay
           x={isTouchDevice ? 0 : mousePosition.x}
           y={isTouchDevice ? 0 : mousePosition.y}
+          isMobile={isMobile}
         />
       </GridContainer>
-      <GlassBackground isDarkMode={isDarkMode} />
+      <GlassBackground isDarkMode={isDarkMode} isMobile={isMobile} />
     </>
   );
 };

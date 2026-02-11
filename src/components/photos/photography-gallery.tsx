@@ -10,11 +10,7 @@ export function PhotographyGallery() {
       {(photographyData as Photo[]).map((photo) => (
         <div
           key={photo.src}
-          className="relative group overflow-hidden rounded shadow-lg"
-          style={{
-            backgroundColor: "var(--glass-bg)",
-            border: "1px solid var(--button-border)",
-          }}
+          className="relative group overflow-hidden rounded shadow-lg bg-glass-bg border border-button-border"
         >
           <div className="relative w-full overflow-hidden">
             <Image
@@ -28,12 +24,7 @@ export function PhotographyGallery() {
 
             {/* photo overlay */}
             <div className="absolute inset-x-0 bottom-0 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 ease-out">
-              <div
-                className="px-4 py-3 backdrop-blur-sm"
-                style={{
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                }}
-              >
+              <div className="px-4 py-3 backdrop-blur-sm bg-black/70">
                 <h3 className="text-white font-semibold text-lg mb-1">
                   {photo.name}
                 </h3>

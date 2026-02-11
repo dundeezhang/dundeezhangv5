@@ -25,32 +25,20 @@ export function ThemeToggle() {
         toggleTheme();
         setTimeout(() => setIsSpinning(false), 500);
       }}
-      className={`transition-all duration-300 hover:rotate-[30deg] ${
-        isSpinning ? "animate-spin" : ""
+      className={`theme-toggle-btn transition-all duration-300 hover:rotate-[30deg] ${
+        isSpinning ? "animate-spin [animation-duration:0.2s] [animation-iteration-count:1]" : ""
       }`}
-      style={{
-        animationDuration: isSpinning ? "0.2s" : undefined,
-        animationIterationCount: isSpinning ? "1" : undefined,
-      }}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      onMouseEnter={(e) => {
-        const icon = e.currentTarget.querySelector("svg");
-        if (icon) icon.style.color = "var(--pink)";
-      }}
-      onMouseLeave={(e) => {
-        const icon = e.currentTarget.querySelector("svg");
-        if (icon) icon.style.color = "var(--foreground)";
-      }}
     >
       {theme === "light" ? (
         <Moon
           size={DEFAULT_ICON_SIZE}
-          style={{ color: "var(--foreground)", transition: "color 300ms ease" }}
+          className="text-foreground transition-colors duration-300"
         />
       ) : (
         <Sun
           size={DEFAULT_ICON_SIZE}
-          style={{ color: "var(--foreground)", transition: "color 300ms ease" }}
+          className="text-foreground transition-colors duration-300"
         />
       )}
     </button>

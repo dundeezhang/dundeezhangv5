@@ -32,11 +32,7 @@ export function WorkCard({
 
   return (
     <div
-      className="border rounded overflow-hidden shadow-lg backdrop-blur-sm"
-      style={{
-        border: "none",
-        backgroundColor: "var(--glass-bg)",
-      }}
+      className="border-0 rounded overflow-hidden shadow-lg backdrop-blur-sm bg-glass-bg"
     >
       {/* Image */}
       {hasImage && (
@@ -85,8 +81,7 @@ export function WorkCard({
         </div>
 
         <p
-          className="text-sm mb-3"
-          style={{ color: "var(--list-text-color)", opacity: 0.8 }}
+          className="text-sm mb-3 text-list-text opacity-80"
         >
           {description}
         </p>
@@ -96,11 +91,7 @@ export function WorkCard({
           {tech.split(", ").map((technology, index) => (
             <span
               key={index}
-              className="px-2 py-1 rounded text-xs"
-              style={{
-                backgroundColor: "var(--grid-color)",
-                color: "var(--foreground)",
-              }}
+              className="px-2 py-1 rounded text-xs bg-grid text-foreground"
             >
               {technology}
             </span>

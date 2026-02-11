@@ -40,10 +40,7 @@ export function WorksClient() {
 
       {filteredWorks.length === 0 && (
         <div className="text-center py-12">
-          <p
-            className="text-lg"
-            style={{ color: "var(--foreground)", opacity: 0.6 }}
-          >
+          <p className="text-lg text-foreground opacity-60">
             No projects found matching your search criteria.
           </p>
         </div>

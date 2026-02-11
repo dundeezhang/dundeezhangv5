@@ -21,13 +21,16 @@
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.5);
   --button-border: rgba(255, 255, 255, 0.1);
-  --pink: rgb(239, 45, 120);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-pink: var(--pink);
+  --color-grid: var(--grid-color);
+  --color-list-text: var(--list-text-color);
+  --color-glass-bg: var(--glass-bg);
+  --color-button-border: var(--button-border);
   --font-sans: var(--font-anonymous-pro);
   --font-mono: var(--font-anonymous-pro);
 }
@@ -182,6 +185,16 @@ body {
 
 .work-card-image:hover {
   filter: brightness(0.7);
+}
+
+/* Theme toggle hover */
+.theme-toggle-btn:hover svg {
+  color: var(--pink);
+}
+
+/* Resume button hover */
+.resume-btn:hover {
+  color: var(--pink);
 }
 
 /* Text selection highlighting */
