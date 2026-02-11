@@ -26,17 +26,15 @@ export function CustomListItem({
       {isSubItem ? (
         <ArrowBigRightDash
           size={16}
-          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg]"
-          style={{ color: "var(--foreground)", opacity: 0.6 }}
+          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg] text-foreground opacity-60"
         />
       ) : (
         <ArrowBigRight
           size={16}
-          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg]"
-          style={{ color: "var(--foreground)", opacity: 0.7 }}
+          className="mt-1 flex-shrink-0 transition-all duration-300 group-hover:rotate-[20deg] text-foreground opacity-70"
         />
       )}
-      <span className="flex-1" style={{ color: "var(--list-text-color)" }}>
+      <span className="flex-1 text-list-text">
         {children}
       </span>
     </li>

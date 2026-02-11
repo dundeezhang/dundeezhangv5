@@ -21,7 +21,7 @@ export function ArticleCard({
         <div className="font-bold transition-colors duration-300 group-hover:text-pink">
           {title}
         </div>
-        <div className="text-sm" style={{ color: "var(--list-text-color)" }}>
+        <div className="text-sm text-list-text">
           {date} • {subject} • {wordCount} words
         </div>
       </Link>

@@ -89,26 +89,13 @@ export function WorksFilter({
       {/* Search Bar */}
       <div className="relative mb-6">
         <div
-          className="relative rounded shadow-sm overflow-hidden backdrop-blur-sm transition-all duration-300"
-          style={{
-            backgroundColor: "var(--glass-bg)",
-            border: `1px solid ${isSearchFocused ? "var(--pink)" : "var(--button-border)"}`,
-          }}
-          onMouseEnter={(e) => {
-            if (!isSearchFocused) {
-              e.currentTarget.style.borderColor = "var(--pink)";
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isSearchFocused) {
-              e.currentTarget.style.borderColor = "var(--button-border)";
-            }
-          }}
+          className={`relative rounded shadow-sm overflow-hidden backdrop-blur-sm transition-all duration-300 bg-glass-bg border ${
+            isSearchFocused ? "border-pink" : "border-button-border hover:border-pink"
+          }`}
         >
           <Search
-            className="absolute left-4 top-1/2 transform -translate-y-1/2"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-foreground opacity-60"
             size={DEFAULT_ICON_SIZE}
-            style={{ color: "var(--foreground)", opacity: 0.6 }}
           />
           <input
             type="text"
@@ -117,8 +104,7 @@ export function WorksFilter({
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsSearchFocused(true)}
             onBlur={() => setIsSearchFocused(false)}
-            className="w-full py-2 pl-12 pr-4 bg-transparent outline-none text-lg"
-            style={{ color: "var(--foreground)" }}
+            className="w-full py-2 pl-12 pr-4 bg-transparent outline-none text-lg text-foreground"
           />
         </div>
       </div>
@@ -129,20 +115,11 @@ export function WorksFilter({
           <button
             key={tag}
             onClick={() => handleTagToggle(tag)}
-            className={`shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm`}
-            style={{
-              backgroundColor: selectedTags.includes(tag)
-                ? "var(--pink)"
-                : "var(--glass-bg)",
-              color: selectedTags.includes(tag) ? "white" : "var(--foreground)",
-              border: "1px solid var(--button-border)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--pink)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--button-border)";
-            }}
+            className={`shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm border border-button-border hover:border-pink ${
+              selectedTags.includes(tag)
+                ? "bg-pink text-white"
+                : "bg-glass-bg text-foreground"
+            }`}
           >
             {tag}
           </button>
@@ -152,18 +129,7 @@ export function WorksFilter({
         {allTags.length > 10 && (
           <button
             onClick={() => setShowAllTags(!showAllTags)}
-            className="shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm"
-            style={{
-              backgroundColor: "var(--glass-bg)",
-              color: "var(--foreground)",
-              border: "1px solid var(--button-border)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--pink)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--button-border)";
-            }}
+            className="shadow-sm px-2 py-1 rounded text-sm font-medium transition-all duration-200 backdrop-blur-sm bg-glass-bg text-foreground border border-button-border hover:border-pink"
           >
             {showAllTags ? "Show Less" : "Show More"}
           </button>

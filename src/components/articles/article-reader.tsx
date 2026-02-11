@@ -23,45 +23,30 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
       {/* Back button */}
       <Link
         href="/articles"
-        className="inline-flex items-center gap-2 mb-4 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
-        style={{ color: "var(--foreground)", opacity: 0.8 }}
+        className="inline-flex items-center gap-2 mb-4 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
       >
         <ArrowLeft size={DEFAULT_ICON_SIZE} />
         <span>Back to articles</span>
       </Link>
 
       {/* Article content */}
-      <article
-        className="prose prose-lg max-w-none"
-        style={{
-          color: "var(--foreground)",
-        }}
-      >
+      <article className="prose prose-lg max-w-none text-foreground">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, rehypeSanitize]}
           components={{
             h1: ({ children }) => (
-              <h1
-                className="text-3xl font-bold mb-4"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h1 className="text-3xl font-bold mb-4 text-foreground">
                 {children}
               </h1>
             ),
             h2: ({ children }) => (
-              <h2
-                className="text-2xl font-bold mb-3 mt-6"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h2 className="text-2xl font-bold mb-3 mt-6 text-foreground">
                 {children}
               </h2>
             ),
             h3: ({ children }) => (
-              <h3
-                className="text-xl font-semibold mb-2 mt-4"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h3 className="text-xl font-semibold mb-2 mt-4 text-foreground">
                 {children}
               </h3>
             ),
@@ -87,69 +72,41 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
               const isInline = !className;
               if (isInline) {
                 return (
-                  <code
-                    className="px-1.5 py-0.5 rounded text-sm"
-                    style={{
-                      backgroundColor: "var(--grid-color)",
-                      color: "var(--foreground)",
-                    }}
-                  >
+                  <code className="px-1.5 py-0.5 rounded text-sm bg-grid text-foreground">
                     {children}
                   </code>
                 );
               }
               return (
                 <code
-                  className={`${className} block p-4 rounded my-4 overflow-x-auto text-sm`}
-                  style={{
-                    backgroundColor: "var(--grid-color)",
-                    color: "var(--foreground)",
-                  }}
+                  className={`${className} block p-4 rounded my-4 overflow-x-auto text-sm bg-grid text-foreground`}
                 >
                   {children}
                 </code>
               );
             },
             pre: ({ children }) => (
-              <pre
-                className="p-4 rounded my-4 overflow-x-auto text-sm"
-                style={{
-                  backgroundColor: "var(--grid-color)",
-                }}
-              >
+              <pre className="p-4 rounded my-4 overflow-x-auto text-sm bg-grid">
                 {children}
               </pre>
             ),
             ul: ({ children }) => (
-              <ul
-                className="list-disc list-inside mb-4 space-y-2"
-                style={{ color: "var(--list-text-color)" }}
-              >
+              <ul className="list-disc list-inside mb-4 space-y-2 text-list-text">
                 {children}
               </ul>
             ),
             ol: ({ children }) => (
-              <ol
-                className="list-decimal list-inside mb-4 space-y-2"
-                style={{ color: "var(--list-text-color)" }}
-              >
+              <ol className="list-decimal list-inside mb-4 space-y-2 text-list-text">
                 {children}
               </ol>
             ),
             li: ({ children }) => (
-              <li className="ml-4" style={{ color: "var(--list-text-color)" }}>
+              <li className="ml-4 text-list-text">
                 {children}
               </li>
             ),
             blockquote: ({ children }) => (
-              <blockquote
-                className="border-l-4 pl-4 my-4 italic"
-                style={{
-                  borderColor: "var(--pink)",
-                  color: "var(--list-text-color)",
-                  opacity: 0.9,
-                }}
-              >
+              <blockquote className="border-l-4 pl-4 my-4 italic border-pink text-list-text opacity-90">
                 {children}
               </blockquote>
             ),
@@ -162,10 +119,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
                   alt={alt || "Article image"}
                   width={1200}
                   height={800}
-                  className="rounded shadow-lg w-full h-auto my-6"
-                  style={{
-                    border: "1px solid var(--button-border)",
-                  }}
+                  className="rounded shadow-lg w-full h-auto my-6 border border-button-border"
                 />
               );
             },
@@ -183,8 +137,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
 
               return (
                 <p
-                  className="mb-4 leading-relaxed"
-                  style={{ color: "var(--list-text-color)" }}
+                  className="mb-4 leading-relaxed text-list-text"
                   {...props}
                 >
                   {children}
@@ -192,13 +145,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
               );
             },
             hr: () => (
-              <hr
-                className="my-8"
-                style={{
-                  borderColor: "var(--grid-color)",
-                  opacity: 0.5,
-                }}
-              />
+              <hr className="my-8 border-grid opacity-50" />
             ),
           }}
         >
@@ -210,8 +157,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
       <div className="mt-6">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
-          style={{ color: "var(--foreground)", opacity: 0.8 }}
+          className="inline-flex items-center gap-2 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
         >
           <ArrowLeft size={DEFAULT_ICON_SIZE} />
           <span>Back to all articles</span>

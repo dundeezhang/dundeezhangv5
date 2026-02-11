@@ -3,25 +3,14 @@ import badgesData from "@/data/badges.json";
 
 export const Badges: React.FC = () => {
   return (
-    <div
-      className="badge-container"
-      style={{
-        display: "flex",
-        gap: "8px",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className="badge-container flex gap-2 flex-wrap">
       {badgesData.map((badge, index) => (
         <a
           href={badge.linkUrl}
           key={index}
           target="_blank"
           rel="noopener noreferrer"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            textDecoration: "none",
-          }}
+          className="flex justify-center no-underline"
         >
           <Image
             src={badge.imageUrl}

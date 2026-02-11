@@ -30,10 +30,7 @@ export function ArticleContainer() {
 
       {sortedArticles.length === 0 && (
         <div className="text-center pt-12">
-          <p
-            className="text-lg"
-            style={{ color: "var(--foreground)", opacity: 0.6 }}
-          >
+          <p className="text-lg text-foreground opacity-60">
             No articles found.
           </p>
         </div>

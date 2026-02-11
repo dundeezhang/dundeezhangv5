@@ -12,12 +12,7 @@ export function Webring() {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   return (
-    <div
-      className=" ml-2"
-      style={{
-        borderColor: "var(--pink)",
-      }}
-    >
+    <div className="ml-2 border-pink">
       <div className="flex items-center justify-center gap-2">
         <a
           className="cs-webring-links"
