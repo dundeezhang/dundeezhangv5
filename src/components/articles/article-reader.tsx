@@ -23,7 +23,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
       {/* Back button */}
       <Link
         href="/articles"
-        className="inline-flex items-center gap-2 mb-4 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
+        className="inline-flex items-center gap-2 mb-4 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:text-pink!"
       >
         <ArrowLeft size={DEFAULT_ICON_SIZE} />
         <span>Back to articles</span>
@@ -157,7 +157,7 @@ export function ArticleReader({ content, article: _article }: ArticleReaderProps
       <div className="mt-6">
         <Link
           href="/articles"
-          className="inline-flex items-center gap-2 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:!text-pink"
+          className="inline-flex items-center gap-2 text-foreground opacity-80 transition-all duration-300 hover:translate-x-[-8px] hover:text-pink!"
         >
           <ArrowLeft size={DEFAULT_ICON_SIZE} />
           <span>Back to all articles</span>
