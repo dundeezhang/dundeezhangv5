@@ -8,7 +8,7 @@ export function SocialCons() {
       <ul className="flex space-x-1 sm:space-x-1 gap-4 sm:gap-0 pb-4 sm:pb-0">
         <li className="p-0 sm:p-2">
           <a
-            href="https://x.com/dundeezhang"
+            href="https://x.com/dundeez"
             aria-label="Twitter profile"
             className="twitter-icon flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#1DA1F2]"
           >
