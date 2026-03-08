@@ -35,7 +35,7 @@ export function SocialCons() {
         </li>
         <li className="p-0 sm:p-2">
           <a
-            href="mailto:contact@dundeezha.ng"
+            href="mailto:dh2zhang@uwaterloo.ca"
             aria-label="Email address"
             className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#FF4D00]"
           >
