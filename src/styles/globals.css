@@ -32,6 +32,7 @@
   --cp-bg: rgba(18, 18, 18, 0.8);
   --muted: #999;
   --muted-light: #777;
+  --underline-color: rgba(156, 163, 175, 0.5);
 }
 
 @theme inline {
@@ -57,6 +58,7 @@
     --cp-bg: rgba(18, 18, 18, 0.8);
     --muted: #999;
     --muted-light: #777;
+    --underline-color: rgba(156, 163, 175, 0.5);
   }
 }
 
@@ -280,7 +282,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-link:hover {
@@ -474,7 +476,4 @@ body {
   color: var(--foreground);
 }
 
-::-moz-selection {
-  background-color: rgba(var(--accent-rgb), 0.3);
-  color: var(--foreground);
-}
+

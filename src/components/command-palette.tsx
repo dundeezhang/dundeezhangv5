@@ -137,9 +137,11 @@ export function CommandPalette() {
   useEffect(() => setSelectedIndex(0), [query]);
 
   function handleKeyNav(e: React.KeyboardEvent) {
+    if (filtered.length === 0) return;
+    const maxIndex = filtered.length - 1;
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setSelectedIndex((i) => Math.min(i + 1, filtered.length - 1));
+      setSelectedIndex((i) => Math.min(i + 1, maxIndex));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((i) => Math.max(i - 1, 0));
