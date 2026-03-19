@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import Background from "@/ui/background";
 import { Intro } from "@/ui/intro";
 import { Footer } from "@/ui/footer";
+import { CommandPalette } from "@/components/command-palette";
+import { PageTransition } from "@/ui/page-transition";
 
 const anonymousPro = Anonymous_Pro({
   variable: "--font-anonymous-pro",
@@ -66,7 +68,10 @@ export default function RootLayout({
         <ThemeProvider>
           <Background />
           <Intro />
-          <main>{children}</main>
+          <CommandPalette />
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
