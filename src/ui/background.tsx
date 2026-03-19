@@ -16,10 +16,16 @@ function useIsMounted() {
   );
 }
 
+const mobileQuery = "(hover: none) and (pointer: coarse)";
+
 function useIsMobile() {
   return useSyncExternalStore(
-    emptySubscribe,
-    () => window.matchMedia("(hover: none) and (pointer: coarse)").matches,
+    (onStoreChange) => {
+      const mql = window.matchMedia(mobileQuery);
+      mql.addEventListener("change", onStoreChange);
+      return () => mql.removeEventListener("change", onStoreChange);
+    },
+    () => window.matchMedia(mobileQuery).matches,
     () => false,
   );
 }
