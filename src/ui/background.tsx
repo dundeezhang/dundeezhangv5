@@ -1,10 +1,36 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSyncExternalStore } from "react";
 import { useTheme } from "@/hooks/use-theme";
 
 const GRID_SIZE = "35px 35px";
 const PARALLAX_FACTOR = 75;
+
+const emptySubscribe = () => () => {};
+
+function useIsMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
+}
+
+function useIsTouchDevice() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => "ontouchstart" in window || navigator.maxTouchPoints > 0,
+    () => false,
+  );
+}
+
+function useIsMobile() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => window.matchMedia("(hover: none) and (pointer: coarse)").matches,
+    () => false,
+  );
+}
 
 function GridContainer({
   children,
@@ -90,27 +116,14 @@ function GlassOverlay({ isMobile }: { isMobile: boolean }) {
 
 export default function Grid() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const { isLoaded } = useTheme();
 
-  const isMobile =
-    isMounted &&
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  const isMounted = useIsMounted();
+  const isTouchDevice = useIsTouchDevice();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const isTouch =
-      "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    setIsTouchDevice(isTouch);
-
-    if (isTouch) return;
+    if (!isMounted || isTouchDevice) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -118,7 +131,7 @@ export default function Grid() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [isMounted]);
+  }, [isMounted, isTouchDevice]);
 
   if (!isLoaded || !isMounted) return null;
 
