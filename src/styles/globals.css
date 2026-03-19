@@ -378,6 +378,12 @@ body {
   font-family: inherit;
 }
 
+.cp-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.125rem;
+}
+
 .cp-input::placeholder {
   color: var(--foreground);
   opacity: 0.4;
@@ -397,6 +403,12 @@ body {
 
 .cp-close:hover {
   opacity: 0.8;
+}
+
+.cp-close:focus-visible {
+  opacity: 0.8;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .cp-results {
@@ -455,6 +467,13 @@ body {
   color: var(--accent);
 }
 
+.cp-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: var(--glass-bg);
+  color: var(--accent);
+}
+
 .cp-item-icon {
   opacity: 0.6;
   display: flex;
@@ -467,6 +486,24 @@ body {
   text-align: center;
   opacity: 0.5;
   font-size: 0.875rem;
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade-in {
+    animation: none;
+  }
+
+  .cp-panel,
+  .cp-panel.cp-visible,
+  .cp-results {
+    transition: none;
+  }
+
+  .cp-panel.cp-closing {
+    animation: none;
+  }
 }
 
 /* ── Text selection ── */
