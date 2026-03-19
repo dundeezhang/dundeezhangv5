@@ -16,14 +16,6 @@ function useIsMounted() {
   );
 }
 
-function useIsTouchDevice() {
-  return useSyncExternalStore(
-    emptySubscribe,
-    () => "ontouchstart" in window || navigator.maxTouchPoints > 0,
-    () => false,
-  );
-}
-
 function useIsMobile() {
   return useSyncExternalStore(
     emptySubscribe,
@@ -119,11 +111,10 @@ export default function Grid() {
   const { isLoaded } = useTheme();
 
   const isMounted = useIsMounted();
-  const isTouchDevice = useIsTouchDevice();
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (!isMounted || isTouchDevice) return;
+    if (!isMounted || isMobile) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -131,7 +122,7 @@ export default function Grid() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [isMounted, isTouchDevice]);
+  }, [isMounted, isMobile]);
 
   if (!isLoaded || !isMounted) return null;
 
@@ -139,8 +130,8 @@ export default function Grid() {
     <>
       <GridContainer isMobile={isMobile}>
         <GridOverlay
-          x={isTouchDevice ? 0 : mousePosition.x}
-          y={isTouchDevice ? 0 : mousePosition.y}
+          x={isMobile ? 0 : mousePosition.x}
+          y={isMobile ? 0 : mousePosition.y}
           isMobile={isMobile}
         />
       </GridContainer>
