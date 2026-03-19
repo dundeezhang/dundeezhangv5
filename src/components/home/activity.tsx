@@ -57,14 +57,6 @@ export function Activity() {
       </CustomList>
 
       <div className="my-4" />
-
-      <CustomList>
-        <CustomListItem>
-          View my <Link href="/resume.pdf" prefetch={false}>resume</Link>.
-        </CustomListItem>
-      </CustomList>
-
-      <div className="my-4" />
     </div>
   );
 }

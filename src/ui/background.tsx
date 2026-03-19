@@ -3,25 +3,17 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@/hooks/use-theme";
 
-interface GridOverlayProps {
-  x: number;
-  y: number;
-  isMobile: boolean;
-}
+const GRID_SIZE = "35px 35px";
+const PARALLAX_FACTOR = 75;
 
-interface GridContainerProps {
-  isDarkMode: boolean;
+function GridContainer({
+  children,
+  isMobile,
+}: {
+  children: React.ReactNode;
   isMobile: boolean;
-}
-
-interface GlassBackgroundProps {
-  isDarkMode: boolean;
-  isMobile: boolean;
-}
-
-const GridContainer: React.FC<
-  GridContainerProps & { children: React.ReactNode }
-> = ({ isDarkMode, isMobile, children }) => {
+}) {
+  const size = isMobile ? "200vh" : "100%";
   return (
     <div
       style={{
@@ -29,9 +21,10 @@ const GridContainer: React.FC<
         top: 0,
         left: 0,
         width: "100%",
-        height: isMobile ? "200vh" : "100%",
-        minHeight: isMobile ? "200vh" : "100%",
-        backgroundColor: isDarkMode ? "#1a1a1a" : "white",
+        height: size,
+        minHeight: size,
+        backgroundColor: "var(--background)",
+        transition: "background-color 0.3s ease",
         overflow: "hidden",
         zIndex: -100,
       }}
@@ -39,9 +32,17 @@ const GridContainer: React.FC<
       {children}
     </div>
   );
-};
+}
 
-const GridOverlay: React.FC<GridOverlayProps> = ({ x, y, isMobile }) => {
+function GridOverlay({
+  x,
+  y,
+  isMobile,
+}: {
+  x: number;
+  y: number;
+  isMobile: boolean;
+}) {
   return (
     <div
       style={{
@@ -53,15 +54,18 @@ const GridOverlay: React.FC<GridOverlayProps> = ({ x, y, isMobile }) => {
         minHeight: isMobile ? "200vh" : "200%",
         backgroundImage:
           "linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)",
-        backgroundSize: "35px 35px",
+        backgroundSize: GRID_SIZE,
         pointerEvents: "none",
-        transform: isMobile ? "none" : `translate(${-x / 75}px, ${-y / 75}px)`,
+        transform: isMobile
+          ? "none"
+          : `translate(${-x / PARALLAX_FACTOR}px, ${-y / PARALLAX_FACTOR}px)`,
       }}
     />
   );
-};
+}
 
-const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode, isMobile }) => {
+function GlassOverlay({ isMobile }: { isMobile: boolean }) {
+  const size = isMobile ? "200vh" : "100%";
   return (
     <div
       style={{
@@ -69,31 +73,26 @@ const GlassBackground: React.FC<GlassBackgroundProps> = ({ isDarkMode, isMobile 
         top: 0,
         left: 0,
         width: "100%",
-        height: isMobile ? "200vh" : "100%",
-        minHeight: isMobile ? "200vh" : "100%",
-        background: isDarkMode
-          ? "rgba(18, 18, 18, 0.5)"
-          : "rgba(255, 255, 255, 0.2)",
+        height: size,
+        minHeight: size,
+        background: "var(--glass-bg)",
+        transition:
+          "background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
         backdropFilter: "blur(0.5px)",
         WebkitBackdropFilter: "blur(1px)",
-        border: `1px solid ${
-          isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.3)"
-        }`,
-        boxShadow: `0 0 6px ${
-          isDarkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.1)"
-        }`,
+        border: "1px solid var(--glass-border)",
+        boxShadow: "0 0 6px var(--glass-shadow)",
         zIndex: -99,
       }}
     />
   );
-};
+}
 
-const Grid: React.FC = () => {
+export default function Grid() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const { theme, isLoaded } = useTheme();
-  const isDarkMode = theme === "dark";
+  const { isLoaded } = useTheme();
 
   const isMobile =
     isMounted &&
@@ -101,56 +100,38 @@ const Grid: React.FC = () => {
     window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- Intentional: triggers re-render after hydration to prevent SSR mismatch
     setIsMounted(true);
   }, []);
 
   useEffect(() => {
     if (!isMounted) return;
 
-    // Check if device supports touch
-    const checkTouchDevice = () => {
-      setIsTouchDevice(
-        "ontouchstart" in window || navigator.maxTouchPoints > 0,
-      );
+    const isTouch =
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+
+    if (isTouch) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    checkTouchDevice();
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isMounted]);
 
-    const handleMouseMove = (event: MouseEvent) => {
-      if (!isTouchDevice) {
-        setMousePosition({ x: event.clientX, y: event.clientY });
-      }
-    };
-
-    if (!isTouchDevice) {
-      window.addEventListener("mousemove", handleMouseMove);
-    }
-
-    return () => {
-      if (!isTouchDevice) {
-        window.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, [isTouchDevice, isMounted]);
-
-  // Don't render until theme is loaded and component is mounted to avoid hydration mismatch
-  if (!isLoaded || !isMounted) {
-    return null;
-  }
+  if (!isLoaded || !isMounted) return null;
 
   return (
     <>
-      <GridContainer isDarkMode={isDarkMode} isMobile={isMobile}>
+      <GridContainer isMobile={isMobile}>
         <GridOverlay
           x={isTouchDevice ? 0 : mousePosition.x}
           y={isTouchDevice ? 0 : mousePosition.y}
           isMobile={isMobile}
         />
       </GridContainer>
-      <GlassBackground isDarkMode={isDarkMode} isMobile={isMobile} />
+      <GlassOverlay isMobile={isMobile} />
     </>
   );
-};
-
-export default Grid;
+}

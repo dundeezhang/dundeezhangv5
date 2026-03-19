@@ -1,58 +1,51 @@
-import { Twitter, Mail, Linkedin, Github, FileText } from "lucide-react";
+import { Twitter, Mail, Linkedin, Github } from "lucide-react";
 import { SOCIAL_ICON_SIZE } from "@/constants/icons";
+import { SearchButton } from "@/components/command-palette";
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://x.com/dundeez",
+    label: "Twitter profile",
+    icon: Twitter,
+    hoverColor: "hover:text-[#1DA1F2]",
+  },
+  {
+    href: "https://github.com/dundeezhang",
+    label: "GitHub profile",
+    icon: Github,
+    hoverColor: "hover:text-[#6366f1]",
+  },
+  {
+    href: "https://linkedin.com/in/dundeezhang",
+    label: "LinkedIn profile",
+    icon: Linkedin,
+    hoverColor: "hover:text-[#0077B5]",
+  },
+  {
+    href: "mailto:dh2zhang@uwaterloo.ca",
+    label: "Email address",
+    icon: Mail,
+    hoverColor: "hover:text-[#FF4D00]",
+  },
+] as const;
 
 export function SocialCons() {
   return (
-    <>
-      {/* when hovering the icons, they tilt */}
-      <ul className="flex space-x-1 sm:space-x-1 gap-4 sm:gap-0 pb-4 sm:pb-0">
-        <li className="p-0 sm:p-2">
+    <ul className="flex space-x-1 sm:space-x-1 gap-4 sm:gap-0 pb-4 sm:pb-0">
+      {SOCIAL_LINKS.map(({ href, label, icon: Icon, hoverColor }) => (
+        <li key={href} className="p-0 sm:p-2">
           <a
-            href="https://x.com/dundeez"
-            aria-label="Twitter profile"
-            className="twitter-icon flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#1DA1F2]"
+            href={href}
+            aria-label={label}
+            className={`social-link ${hoverColor}`}
           >
-            <Twitter size={SOCIAL_ICON_SIZE} />
+            <Icon size={SOCIAL_ICON_SIZE} />
           </a>
         </li>
-        <li className="p-0 sm:p-2">
-          <a
-            href="https://github.com/dundeezhang"
-            aria-label="GitHub profile"
-            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#6366f1]"
-          >
-            <Github size={SOCIAL_ICON_SIZE} />
-          </a>
-        </li>
-        <li className="p-0 sm:p-2">
-          <a
-            href="https://linkedin.com/in/dundeezhang"
-            aria-label="LinkedIn profile"
-            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#0077B5]"
-          >
-            <Linkedin size={SOCIAL_ICON_SIZE} />
-          </a>
-        </li>
-        <li className="p-0 sm:p-2">
-          <a
-            href="mailto:dh2zhang@uwaterloo.ca"
-            aria-label="Email address"
-            className="flex items-center justify-center transition-all duration-300 hover:rotate-[15deg] hover:text-[#FF4D00]"
-          >
-            <Mail size={SOCIAL_ICON_SIZE} />
-          </a>
-        </li>
-        <li className="hidden sm:block ml-2">
-          <a
-            href="/resume.pdf"
-            aria-label="View resume PDF"
-            className="resume-btn transition-all duration-300 border-2 border-pink py-1 px-2 rounded flex items-center space-x-1"
-          >
-            <FileText size={SOCIAL_ICON_SIZE} />
-            <span className="text-sm">Resume</span>
-          </a>
-        </li>
-      </ul>
-    </>
+      ))}
+      <li className="hidden sm:block ml-2">
+        <SearchButton />
+      </li>
+    </ul>
   );
 }
