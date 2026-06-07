@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { ThemeContext, Theme } from "./ThemeContextTypes";
+import { useState, useEffect } from "react";
+import type { ReactNode } from "react";
+import { ThemeContext } from "./ThemeContextTypes";
+import type { Theme } from "./ThemeContextTypes";
 
 interface ThemeProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {

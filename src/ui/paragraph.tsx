@@ -1,7 +1,7 @@
-import React from "react";
+import type { ReactNode } from "react";
 
 interface ParagraphProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 

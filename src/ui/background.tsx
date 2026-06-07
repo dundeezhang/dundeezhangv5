@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useSyncExternalStore } from "react";
+import {
+  useState,
+  useEffect,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { useTheme } from "@/hooks/use-theme";
 
 const GRID_SIZE = "35px 35px";
@@ -34,7 +39,7 @@ function GridContainer({
   children,
   isMobile,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   isMobile: boolean;
 }) {
   const size = isMobile ? "200vh" : "100%";

@@ -9,15 +9,9 @@ import Image from "next/image";
 
 interface ArticleReaderProps {
   content: string;
-  article: {
-    title: string;
-    date: string;
-    subject: string;
-    wordCount: number;
-  };
 }
 
-export function ArticleReader({ content, article: _article }: ArticleReaderProps) {
+export function ArticleReader({ content }: ArticleReaderProps) {
   return (
     <div>
       {/* Back button */}

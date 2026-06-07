@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import {
   Search,
@@ -12,15 +13,16 @@ import {
   X,
 } from "lucide-react";
 import { DEFAULT_ICON_SIZE, SOCIAL_ICON_SIZE } from "@/constants/icons";
+import { articles, getArticleHref } from "@/lib/articles";
 
 interface SearchItem {
   title: string;
   category: string;
   href: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
-const ALL_ITEMS: SearchItem[] = [
+const PAGE_ITEMS: SearchItem[] = [
   {
     title: "Home",
     category: "Pages",
@@ -51,19 +53,16 @@ const ALL_ITEMS: SearchItem[] = [
     href: "/articles",
     icon: <FileText size={DEFAULT_ICON_SIZE} />,
   },
-  {
-    title: "Finding Your First Internship as a Waterloo Freshman",
-    category: "Articles",
-    href: "/articles/first-internship",
-    icon: <FileText size={DEFAULT_ICON_SIZE} />,
-  },
-  {
-    title: "Evaluate AI Models for Your Needs",
-    category: "Articles",
-    href: "/articles/evaluating-genai-models",
-    icon: <FileText size={DEFAULT_ICON_SIZE} />,
-  },
 ];
+
+const ARTICLE_ITEMS: SearchItem[] = articles.map((article) => ({
+  title: article.title,
+  category: "Articles",
+  href: getArticleHref(article),
+  icon: <FileText size={DEFAULT_ICON_SIZE} />,
+}));
+
+const ALL_ITEMS: SearchItem[] = [...PAGE_ITEMS, ...ARTICLE_ITEMS];
 
 type Phase = "closed" | "bar-in" | "results-in" | "closing";
 

@@ -1,29 +1,20 @@
 import { ArticleCard } from "./article-card";
-import articlesData from "@/data/articles.json";
-import type { Article } from "@/types";
+import { getArticleSlug, getSortedArticles } from "@/lib/articles";
 
 export function ArticleContainer() {
-  // Sort articles by date (newest first)
-  const sortedArticles = [...articlesData].sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
-
-  // Convert filename to slug (remove .md extension)
-  const getSlug = (filename: string) => {
-    return filename.replace(/\.md$/i, "");
-  };
+  const sortedArticles = getSortedArticles();
 
   return (
     <div>
       <div className="grid grid-cols-1">
-        {sortedArticles.map((article: Article) => (
+        {sortedArticles.map((article) => (
           <ArticleCard
             key={article.filename}
             title={article.title}
             date={article.date}
             subject={article.subject}
             wordCount={article.wordCount}
-            slug={getSlug(article.filename)}
+            slug={getArticleSlug(article)}
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArticleReader } from "@/components/articles/article-reader";
-import articlesData from "@/data/articles.json";
+import { articles, getArticleBySlug, getArticleSlug } from "@/lib/articles";
 import { promises as fs } from "fs";
 import path from "path";
 import type { Metadata } from "next";
@@ -13,8 +13,8 @@ interface ArticlePageProps {
 
 // Generate static params for all articles
 export async function generateStaticParams() {
-  return articlesData.map((article) => ({
-    slug: article.filename.replace(".md", ""),
+  return articles.map((article) => ({
+    slug: getArticleSlug(article),
   }));
 }
 
@@ -23,9 +23,7 @@ export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = articlesData.find(
-    (a) => a.filename.replace(".md", "") === slug
-  );
+  const article = getArticleBySlug(slug);
 
   if (!article) {
     return {
@@ -42,10 +40,7 @@ export async function generateMetadata({
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
 
-  // Find the article metadata
-  const article = articlesData.find(
-    (a) => a.filename.replace(".md", "") === slug
-  );
+  const article = getArticleBySlug(slug);
 
   if (!article) {
     notFound();
@@ -57,7 +52,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     "src",
     "data",
     "articles",
-    article.filename
+    article.filename,
   );
 
   let content: string;
@@ -70,7 +65,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="max-w-xl mx-auto mt-4 mb-8 px-4">
-      <ArticleReader content={content} article={article} />
+      <ArticleReader content={content} />
     </main>
   );
 }
