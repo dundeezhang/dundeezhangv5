@@ -30,9 +30,9 @@ const PAGE_ITEMS: SearchItem[] = [
     icon: <Home size={DEFAULT_ICON_SIZE} />,
   },
   {
-    title: "About",
+    title: "Experiences",
     category: "Pages",
-    href: "/about",
+    href: "/experiences",
     icon: <User size={DEFAULT_ICON_SIZE} />,
   },
   {

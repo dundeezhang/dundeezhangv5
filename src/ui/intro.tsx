@@ -85,10 +85,10 @@ export function Intro() {
           </li>
           <li>
             <Link
-              href="/about"
-              className={pathname === "/about" ? "active" : ""}
+              href="/experiences"
+              className={pathname === "/experiences" ? "active" : ""}
             >
-              About
+              Experiences
             </Link>
           </li>
           <li>
