@@ -4,10 +4,9 @@ January 21, 2026
 
 ## Context on Waterloo
 
-Waterloo's co-op system gives students two years of professional experience within a five-year degree. That schedule depends on two habits:
+Waterloo's co-op schedule varies by program. Co-op commonly begins in second year, while some programs start in first year. Students may complete between four and six work terms.
 
-1. Begin work terms during first year.
-2. Keep moving between school and co-op terms.
+Check your program's sequence, then prepare well before your first scheduled work term.
 
 The first search can feel strange because employers ask for experience during the process meant to help you gain it. I learned that the way through is to create evidence early and make sure people see it.
 

@@ -16,15 +16,15 @@ Think of a benchmark as a map legend that explains part of the terrain. You stil
 
 Frontier models can handle demanding prompts with broad context. Smaller open models can offer more control at a lower operating cost and still succeed when they fit the task.
 
-At the time this article was written, Claude models were especially strong at coding evaluations. GPT models often stood out in areas that relied on broad knowledge. Those results gave teams a useful shortlist. They could never make the final choice for every workflow.
+In my own testing before January 24, 2026, Claude models often produced the strongest results for coding workflows. GPT models often handled broad-knowledge prompts well. I used those observations to build a shortlist, then tested each workflow directly.
 
 Start by defining what success looks like in your setting. A support assistant needs consistent answers grounded in company policy. A code review agent needs to understand changes across files while respecting local conventions. These systems face different failure modes, even when both use the same underlying model.
 
 ## Coding Makes the Tradeoffs Visible
 
-Coding became one of the clearest commercial uses for generative AI during 2025. Product teams could see the value quickly because generated changes were easy to inspect, while model differences became obvious across real repositories.
+Coding made model tradeoffs easy to see in my work during 2025. Generated changes were easy to inspect across real repositories.
 
-When Gemini 3 Pro arrived in late 2025, its model card showed strong results across major evaluations. Claude remained ahead on SWE-bench Verified and pushed coding performance further with Opus 4.5.
+Late-2025 releases from Gemini and Claude changed the public benchmark picture again. The pace of those shifts reinforced a simple lesson: public rankings age quickly. Retest models with your own workload.
 
 That history matters if your workflow involves editing a large codebase. It carries much less weight for a legal research assistant. A model tuned for code may be a poor fit for document review. A compact model may be ideal for routing support tickets.
 

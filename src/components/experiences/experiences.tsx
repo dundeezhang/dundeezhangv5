@@ -6,12 +6,12 @@ export function ExperienceList() {
     <div className="max-w-xl mx-auto my-4 px-4 home-page-content">
       <CustomList>
         <CustomListItem>
-          <p className="font-bold">
+          <strong>
             Product/ML Engineer @{" "}
             <Link href="https://coderabbit.ai" target="_blank">
               CodeRabbit
             </Link>
-          </p>
+          </strong>
         </CustomListItem>
         <CustomListItem isSubItem>
           <strong>AI evaluation:</strong> Built a framework across 100+
@@ -48,12 +48,12 @@ export function ExperienceList() {
         <li aria-hidden className="h-2" />
 
         <CustomListItem>
-          <p className="font-bold">
+          <strong>
             Software Developer @{" "}
             <Link href="https://airfairness.com" target="_blank">
               airfairness
             </Link>
-          </p>
+          </strong>
         </CustomListItem>
         <CustomListItem isSubItem>
           <strong>Claims architecture:</strong> Redesigned claims processing to
@@ -76,12 +76,12 @@ export function ExperienceList() {
         <li aria-hidden className="h-2" />
 
         <CustomListItem>
-          <p className="font-bold">
+          <strong>
             President + Advisor @{" "}
             <Link href="https://csclub.uwaterloo.ca" target="_blank">
               UW Computer Science Club
             </Link>
-          </p>
+          </strong>
         </CustomListItem>
         <CustomListItem isSubItem>
           Led 70+ students across technical events and club operations while
@@ -91,12 +91,12 @@ export function ExperienceList() {
         <li aria-hidden className="h-2" />
 
         <CustomListItem>
-          <p className="font-bold">
+          <strong>
             Director + Council Representative @{" "}
             <Link href="https://mathsoc.uwaterloo.ca" target="_blank">
               UW Mathematics Society
             </Link>
-          </p>
+          </strong>
         </CustomListItem>
         <CustomListItem isSubItem>
           Represented students in society governance and council.
